@@ -7,7 +7,7 @@ const sections = [
     label: "About",
     href: "/about",
     icon: "FaUser",
-    description: "Life, Education, & Interests",
+    description: "Life & Education",
   },
   {
     label: "Portfolio",
