@@ -4,13 +4,8 @@ import { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 
 export default function TypewriterHeader() {
-  const [mounted, setMounted] = useState(false);
   const [firstLineDone, setFirstLineDone] = useState(false);
   const [showSecondLine, setShowSecondLine] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     if (firstLineDone) {
@@ -18,16 +13,6 @@ export default function TypewriterHeader() {
       return () => clearTimeout(timer);
     }
   }, [firstLineDone]);
-
-  if (!mounted) {
-    return (
-      <div className="flex flex-col items-center gap-4">
-        <h1 className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl">
-          &nbsp;
-        </h1>
-      </div>
-    );
-  }
 
   return (
     <div className="flex flex-col items-center gap-4">
@@ -49,7 +34,7 @@ export default function TypewriterHeader() {
       )}
       {showSecondLine && (
         <TypeAnimation
-          sequence={["Welcome to Till Technologies"]}
+          sequence={["Welcome to my site"]}
           wrapper="h2"
           speed={50}
           className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl"
