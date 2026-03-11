@@ -71,12 +71,6 @@ export async function POST(request: Request) {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      console.log("Contact form submission (EmailJS not configured):", {
-        name,
-        email,
-        subject,
-        message: message.slice(0, 100) + "...",
-      });
       return NextResponse.json({ success: true });
     }
 
