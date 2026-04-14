@@ -22,6 +22,7 @@ export interface Project {
   techStack: string[];
   thumbnailUrl: string;
   screenshots?: string[];
+  screenshotLayout?: "carousel" | "grid";
   githubUrl?: string | null;
   liveUrl?: string | null;
   demoUrl?: string | null;

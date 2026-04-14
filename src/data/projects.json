@@ -45,6 +45,12 @@
     "description": "Real-time sports card auction analyzer for live streams — uses OCR, computer vision, and AI to identify cards and pull pricing data in real time.",
     "techStack": ["Python", "React", "TensorFlow", "OpenCV", "FastAPI", "WebSocket"],
     "thumbnailUrl": "/images/projects/joshinator.png",
+    "screenshots": [
+      "/images/projects/1-Joshinator-Screenshot.png",
+      "/images/projects/2-Joshinator-Screenshot.png",
+      "/images/projects/3-Joshinator-Screenshot.png"
+    ],
+    "screenshotLayout": "carousel",
     "githubUrl": "https://github.com/Ethan-Tillmon7/joshinator-analyzer",
     "liveUrl": null,
     "featured": true,
@@ -91,6 +97,7 @@
       "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
       "/images/projects/EncoreApp-JournalView-Screenshot.png"
     ],
+    "screenshotLayout": "grid",
     "liveUrl": null,
     "githubUrl": null,
     "featured": true,
