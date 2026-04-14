@@ -131,7 +131,7 @@
     "slug": "blackjack",
     "description": "Terminal-based Blackjack card game with full deck management, dealer AI, and ace-value selection — AP Computer Science high school project.",
     "techStack": ["Python"],
-    "thumbnailUrl": "/images/projects/blackjack.png",
+    "thumbnailUrl": "/images/projects/BlackjackPythonGame-Screenshot.png",
     "githubUrl": null,
     "liveUrl": null,
     "featured": true,
