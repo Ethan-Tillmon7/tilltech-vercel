@@ -87,6 +87,7 @@
     "techStack": ["Swift", "SwiftUI", "iOS", "Firebase"],
     "thumbnailUrl": "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
     "screenshots": [
+      "/images/projects/EncoreApp-HomeView-Screenshot.png",
       "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
       "/images/projects/EncoreApp-JournalView-Screenshot.png"
     ],
