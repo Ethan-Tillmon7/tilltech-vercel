@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaPlay, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt, FaPlay, FaStar } from "react-icons/fa";
 import Badge from "@/components/common/Badge";
 import GlitchText from "@/components/common/GlitchText";
 import type { Project, GitHubRepoInfo } from "@/types";
@@ -16,7 +16,6 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index, repoInfo }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false);
-  const [slideIndex, setSlideIndex] = useState(0);
   const slides = project.screenshots && project.screenshots.length > 1 ? project.screenshots : null;
   return (
     <motion.div
@@ -57,46 +56,18 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
             </div>
           </div>
         ) : slides ? (
-          <div className="relative h-48 overflow-hidden bg-secondary/10">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={slideIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="absolute inset-0"
-              >
+          <div className="flex h-48 gap-1 overflow-hidden bg-secondary/10">
+            {slides.map((src, i) => (
+              <div key={i} className="relative flex-1">
                 <Image
-                  src={slides[slideIndex]}
-                  alt={`${project.title} screenshot ${slideIndex + 1}`}
+                  src={src}
+                  alt={`${project.title} screenshot ${i + 1}`}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 16vw"
                 />
-              </motion.div>
-            </AnimatePresence>
-            <button
-              onClick={(e) => { e.preventDefault(); setSlideIndex((slideIndex - 1 + slides.length) % slides.length); }}
-              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-1.5 text-primary opacity-0 transition-opacity group-hover:opacity-100"
-            >
-              <FaChevronLeft size={10} />
-            </button>
-            <button
-              onClick={(e) => { e.preventDefault(); setSlideIndex((slideIndex + 1) % slides.length); }}
-              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-1.5 text-primary opacity-0 transition-opacity group-hover:opacity-100"
-            >
-              <FaChevronRight size={10} />
-            </button>
-            <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={(e) => { e.preventDefault(); setSlideIndex(i); }}
-                  className={`h-1.5 w-1.5 rounded-full transition-colors ${i === slideIndex ? "bg-primary" : "bg-text/30"}`}
-                />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         ) : imgError ? (
           <div className="flex h-48 items-center justify-center bg-secondary/10">
