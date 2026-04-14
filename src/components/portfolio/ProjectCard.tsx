@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaPlay, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Badge from "@/components/common/Badge";
 import GlitchText from "@/components/common/GlitchText";
-import TiltCard from "@/components/common/TiltCard";
 import type { Project, GitHubRepoInfo } from "@/types";
 
 interface ProjectCardProps {
@@ -28,7 +27,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
       layout
       className="h-full"
     >
-      <TiltCard className="h-full">
+      <div className="h-full">
         <motion.div
           className="group flex h-full flex-col overflow-hidden rounded-xl border border-secondary/30 bg-background/50"
           whileHover={{
@@ -72,7 +71,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                   src={slides[slideIndex]}
                   alt={`${project.title} screenshot ${slideIndex + 1}`}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </motion.div>
@@ -175,7 +174,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
           </div>
         </div>
       </motion.div>
-      </TiltCard>
+      </div>
     </motion.div>
   );
 }
