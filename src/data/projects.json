@@ -78,6 +78,20 @@
     "order": 5
   },
   {
+    "id": "encore",
+    "title": "Encore",
+    "slug": "encore",
+    "description": "Encore is a multi-festival companion app for iPhone — browse festivals, build a personalized artist schedule, and coordinate with your crew via shared invite codes. Log the artists you've seen across shows and manage trip logistics including travel details, packing lists, shared expenses, and group playlists.",
+    "techStack": ["Swift", "SwiftUI", "iOS", "Firebase"],
+    "thumbnailUrl": "/images/projects/encore-crew-tab.png",
+    "liveUrl": null,
+    "githubUrl": null,
+    "featured": true,
+    "category": "personal",
+    "status": "in-development",
+    "order": 6
+  },
+  {
     "id": "retro-rumble",
     "title": "Retro Rumble",
     "slug": "retro-rumble",

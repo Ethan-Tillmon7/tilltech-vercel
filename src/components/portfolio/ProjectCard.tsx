@@ -75,11 +75,18 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
         )}
 
         <div className="flex flex-1 flex-col p-6">
-          <div className="mb-2 flex items-center justify-between">
+          <div className="mb-2 flex items-center justify-between gap-2">
             <GlitchText text={project.title} as="h3" className="font-semibold text-text" />
-            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs capitalize text-primary/70">
-              {project.category}
-            </span>
+            <div className="flex shrink-0 items-center gap-1.5">
+              {project.status === "in-development" && (
+                <span className="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                  In Development
+                </span>
+              )}
+              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs capitalize text-primary/70">
+                {project.category}
+              </span>
+            </div>
           </div>
 
           <p className="mb-4 flex-1 text-sm leading-relaxed text-text/60">

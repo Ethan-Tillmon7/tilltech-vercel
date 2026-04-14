@@ -26,6 +26,7 @@ export interface Project {
   demoUrl?: string | null;
   featured: boolean;
   category: "professional" | "personal" | "academic";
+  status?: "in-development" | "completed";
   order: number;
 }
 
