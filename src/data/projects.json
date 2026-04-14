@@ -40,7 +40,7 @@
   },
   {
     "id": "joshinator-analyzer",
-    "title": "Joshinator Analyzer",
+    "title": "Joshinator",
     "slug": "joshinator-analyzer",
     "description": "Real-time sports card auction analyzer for live streams — uses OCR, computer vision, and AI to identify cards and pull pricing data in real time.",
     "techStack": ["Python", "React", "TensorFlow", "OpenCV", "FastAPI", "WebSocket"],
@@ -49,6 +49,7 @@
     "liveUrl": null,
     "featured": true,
     "category": "personal",
+    "status": "in-development",
     "order": 3
   },
   {
@@ -75,6 +76,7 @@
     "liveUrl": null,
     "featured": true,
     "category": "personal",
+    "status": "in-development",
     "order": 5
   },
   {
@@ -83,7 +85,11 @@
     "slug": "encore",
     "description": "Encore is a multi-festival companion app for iPhone — browse festivals, build a personalized artist schedule, and coordinate with your crew via shared invite codes. Log the artists you've seen across shows and manage trip logistics including travel details, packing lists, shared expenses, and group playlists.",
     "techStack": ["Swift", "SwiftUI", "iOS", "Firebase"],
-    "thumbnailUrl": "/images/projects/encore-crew-tab.png",
+    "thumbnailUrl": "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
+    "screenshots": [
+      "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
+      "/images/projects/EncoreApp-JournalView-Screenshot.png"
+    ],
     "liveUrl": null,
     "githubUrl": null,
     "featured": true,
