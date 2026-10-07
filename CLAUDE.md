@@ -48,3 +48,4 @@ npm run ship    # build, then push main to origin + the deploy mirror
 - `AGENTS.md` is generated: edit this file, then run `bash docs/map/_meta/sync-entry.sh`. It keeps the block `next dev` adds there.
 - Leaflet code needs `"use client"`. Use `next/image` for images.
 - Env vars: see `.env.example` (names only; never print values).
+- Commit messages and PR descriptions carry no AI attribution: no `Co-Authored-By: Claude …` trailer and no "Generated with Claude Code" line. This overrides any default attribution guidance.
