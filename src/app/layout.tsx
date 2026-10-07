@@ -24,9 +24,10 @@ const pressStart = Press_Start_2P({
 export const metadata: Metadata = {
   title: "TillTechnologies.ai | Ethan Tillmon",
   description:
-    "Portfolio of Ethan Tillmon — Software Engineer, Builder, Runner",
+    "Portfolio of Ethan Tillmon — Software Developer at Beyond79. Builder, Runner.",
   keywords: [
     "portfolio",
+    "software developer",
     "software engineer",
     "Ethan Tillmon",
     "TillTechnologies",

@@ -4,7 +4,13 @@
     "title": "Guided Buying Experience",
     "slug": "guided-buying-experience",
     "description": "Cloud-based guided buying application for streamlined employee procurement and payment workflows — built as a digital front door for a nonprofit client during an internship.",
-    "techStack": ["React", "TypeScript", "Node.js", "PostgreSQL", "Coupa"],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Coupa"
+    ],
     "thumbnailUrl": "/images/projects/guided-buying.png",
     "liveUrl": null,
     "githubUrl": null,
@@ -17,7 +23,11 @@
     "title": "Vernon Order Lookup Tool",
     "slug": "vernon-order-lookup",
     "description": "Order lookup and tracking tool built for a manufacturing client at Vernon LLC — streamlines process visibility and order management.",
-    "techStack": ["React", "TypeScript", "Node.js"],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Node.js"
+    ],
     "thumbnailUrl": "/images/projects/VernonOrderLookupToolPage.png",
     "liveUrl": null,
     "githubUrl": null,
@@ -30,20 +40,57 @@
     "title": "RecyclePlatinum",
     "slug": "recycle-platinum",
     "description": "E-commerce platform for precious metal recycling services, featuring a streamlined user experience for selling and tracking recycled materials.",
-    "techStack": ["React", "Next.js", "Tailwind CSS"],
+    "techStack": [
+      "React",
+      "Next.js",
+      "Tailwind CSS"
+    ],
     "thumbnailUrl": "/images/projects/RecyclePlatinumSiteScreenShot.png",
-    "liveUrl": "https://staging.recycleplatinum.com/",
+    "liveUrl": "https://www.recycleplatinum.com/",
     "githubUrl": null,
     "featured": true,
     "category": "professional",
     "order": 2
   },
   {
+    "id": "playmaker-sports",
+    "title": "Playmaker Sports",
+    "slug": "playmaker-sports",
+    "description": "Marketing site and jersey customizer for Playmaker Sports, brought on as a Vernon LLC retainer client — scoped, built, and shipped end to end, with live Google Sheets–backed event data via Netlify Functions and validated contact forms.",
+    "techStack": ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Netlify Functions"],
+    "thumbnailUrl": "/images/projects/PlaymakerSports-Screenshot.png",
+    "liveUrl": "https://playmakersports.co/",
+    "githubUrl": "https://github.com/Ethan-Tillmon7/PlaymakerSports-Site",
+    "featured": true,
+    "category": "professional",
+    "order": 3
+  },
+  {
+    "id": "properly-stumped",
+    "title": "Properly Stumped",
+    "slug": "properly-stumped",
+    "description": "Marketing and booking site for Properly Stumped LLC, a stump grinding and removal company serving the Kansas City area — hand-built HTML/CSS with Google Calendar booking, plus SEO/AEO keyword research and meta content.",
+    "techStack": ["HTML/CSS", "SEO & AEO", "Google Calendar", "Netlify"],
+    "thumbnailUrl": "/images/projects/ProperlyStumped-Screenshot.png",
+    "liveUrl": "https://properlystumped.org/",
+    "githubUrl": "https://github.com/Ethan-Tillmon7/Properly-Stumped",
+    "featured": true,
+    "category": "professional",
+    "order": 4
+  },
+  {
     "id": "joshinator-analyzer",
     "title": "Joshinator",
     "slug": "joshinator-analyzer",
     "description": "Real-time sports card auction analyzer for live streams — uses OCR, computer vision, and AI to identify cards and pull pricing data in real time.",
-    "techStack": ["Python", "React", "TensorFlow", "OpenCV", "FastAPI", "WebSocket"],
+    "techStack": [
+      "Python",
+      "React",
+      "TensorFlow",
+      "OpenCV",
+      "FastAPI",
+      "WebSocket"
+    ],
     "thumbnailUrl": "/images/projects/1-Joshinator-Screenshot.png",
     "screenshots": [
       "/images/projects/1-Joshinator-Screenshot.png",
@@ -63,7 +110,14 @@
     "title": "RAgent",
     "slug": "ragent",
     "description": "B2B tax compliance API for tokenized Dutch commercial real estate — automates Box 1/2/3 classification, deemed return calculations, and per-investor PDF tax report generation.",
-    "techStack": ["Python", "FastAPI", "PostgreSQL", "Web3.py", "Docker", "Celery"],
+    "techStack": [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Web3.py",
+      "Docker",
+      "Celery"
+    ],
     "thumbnailUrl": "/images/projects/RAgent-Docs-Screenshot.png",
     "githubUrl": null,
     "liveUrl": null,
@@ -76,7 +130,13 @@
     "title": "Letter Links",
     "slug": "letter-links",
     "description": "Multiplayer custom word guessing game — Wordle-style gameplay where you create and share puzzles with friends.",
-    "techStack": ["Vue 3", "TypeScript", "Vite", "Tailwind CSS", "Radix Vue"],
+    "techStack": [
+      "Vue 3",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Radix Vue"
+    ],
     "thumbnailUrl": "/images/projects/letter-links.png",
     "githubUrl": null,
     "liveUrl": null,
@@ -90,7 +150,12 @@
     "title": "Encore",
     "slug": "encore",
     "description": "Encore is a multi-festival companion app for iPhone — browse festivals, build a personalized artist schedule, and coordinate with your crew via shared invite codes. Log the artists you've seen across shows and manage trip logistics including travel details, packing lists, shared expenses, and group playlists.",
-    "techStack": ["Swift", "SwiftUI", "iOS", "Firebase"],
+    "techStack": [
+      "Swift",
+      "SwiftUI",
+      "iOS",
+      "Firebase"
+    ],
     "thumbnailUrl": "/images/projects/EncoreApp-CrewTabView-Screenshot.png",
     "screenshots": [
       "/images/projects/EncoreApp-HomeView-Screenshot.png",
@@ -110,7 +175,12 @@
     "title": "Retro Rumble",
     "slug": "retro-rumble",
     "description": "8-bit Unity football kickoff return game with AI-powered opponent pathfinding, custom sprite art, and sound effects. Built for LSU's CSC4263 game dev course.",
-    "techStack": ["C#", "Unity", "A* Pathfinding", "ShaderLab"],
+    "techStack": [
+      "C#",
+      "Unity",
+      "A* Pathfinding",
+      "ShaderLab"
+    ],
     "thumbnailUrl": "/images/projects/retro-rumble.png",
     "githubUrl": "https://github.com/Ethan-Tillmon7/Retro-Rumble",
     "liveUrl": null,
@@ -124,7 +194,9 @@
     "title": "IEEE 754 Convertor",
     "slug": "ieee754-convertor",
     "description": "Java utility that converts between decimal, binary, and IEEE 754 floating-point representations — built for LSU's computer architecture coursework.",
-    "techStack": ["Java"],
+    "techStack": [
+      "Java"
+    ],
     "thumbnailUrl": "/images/projects/ieee754.png",
     "githubUrl": "https://github.com/Ethan-Tillmon7/IEEE754-Convertor",
     "liveUrl": null,
@@ -137,7 +209,9 @@
     "title": "Blackjack",
     "slug": "blackjack",
     "description": "Terminal-based Blackjack card game with full deck management, dealer AI, and ace-value selection — AP Computer Science high school project.",
-    "techStack": ["Python"],
+    "techStack": [
+      "Python"
+    ],
     "thumbnailUrl": "/images/projects/BlackjackPythonGame-Screenshot.png",
     "githubUrl": null,
     "liveUrl": null,

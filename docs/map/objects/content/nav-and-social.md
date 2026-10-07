@@ -9,7 +9,7 @@ entity: src/data/navigation.json
 
 # Nav and social
 
-`src/data/navigation.json` (the four routes in the header and mobile menu) and `src/data/social.json` (GitHub, LinkedIn, Instagram icons in the footer and on `/contact`).
+`src/data/navigation.json` (the four routes in the header and mobile menu) and `src/data/social.json` (GitHub and LinkedIn icons in the footer and on `/contact`).
 
 ## Why this shape
 
@@ -21,7 +21,7 @@ One JSON list per menu so the header and mobile menu stay in sync. The route lis
 - Route list restated: home cards `src/components/home/SectionGrid.tsx:8,14,20`, sitemap `src/app/sitemap.ts:6-11`
 - `SocialLink` `types/index.ts:9-13`. Read at `src/components/contact/SocialLinks.tsx:5` and `src/components/layout/Footer.tsx:5`
 - `icon` is a string looked up in a **separate `iconMap` in each consumer**: `SocialLinks.tsx:7-11` and `Footer.tsx:7`. An unknown name renders nothing (`?? null`).
-- As of 2026-10-06 the Instagram URL is the generic `https://www.instagram.com/?hl=en`, not a profile.
+- Instagram was removed on 2026-10-07 until there's a real profile URL. Both `iconMap`s still include `FaInstagram`, so restoring it is a `social.json` edit only.
 
 ## Connected to
 

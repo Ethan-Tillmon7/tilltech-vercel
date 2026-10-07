@@ -20,7 +20,7 @@ Success means a visitor leaves with an up-to-date understanding of Ethan and kno
 
 ## Positioning
 
-A product-minded builder with a software engineering foundation who has shipped for real clients and keeps building ambitious things on his own. His client work spans legacy modernization, procurement, manufacturing digitization and e-commerce (DataMap, Beyond79, Vernon LLC, RecyclePlatinum). His own projects span an iOS app, real-time computer vision, a fintech API, a multiplayer game and a Unity game. He has a CS degree from LSU and an M.S. in IT Management from Tulane, and is now a part owner of a company (name to be confirmed).
+A product-minded builder with a software engineering foundation who has shipped for real clients and keeps building ambitious things on his own. His client work spans legacy modernization, procurement, manufacturing digitization and e-commerce (DataMap, Beyond79, Vernon LLC, RecyclePlatinum). His own projects span an iOS app, real-time computer vision, a fintech API, a multiplayer game and a Unity game. He has a CS degree from LSU and an M.S. in IT Management from Tulane, works full time as a Software Developer at Beyond79, and is a part owner at Vernon LLC, an AI & automation consulting firm where he also leads new client acquisition (e.g., Playmaker Sports on retainer).
 
 ## Operating Context
 
@@ -41,15 +41,12 @@ A product-minded builder with a software engineering foundation who has shipped 
 
 **Built but not shown on any page:** health (Strava feed, marathon countdown, fitness goals), interests (tabs), and travels (world map, photo gallery, travel stats). The user wants a *small dose* of personal content: some personality, while the site stays focused on work. Which pieces return, and in what form, is undecided.
 
-**Known stale or placeholder content (confirmed out of date 2026-10-06):**
+**Known stale or placeholder content:**
 
-- `about.json` bio still describes Ethan as an M.S. student. He has since graduated and is employed.
-- Tulane education entry still reads "Expected May 2026".
-- The timeline ends at Aug 2025 (Developer at Vernon LLC). Missing: Tulane graduation and the current part-owner role.
-- **Open:** which company Ethan is part owner of, his title, and the start date.
-- The Instagram link in `social.json` points to the Instagram homepage, not a profile.
-- The RecyclePlatinum `liveUrl` points to a staging domain.
-- The site metadata description is "Software Engineer, Builder, Runner".
+- **Resolved 2026-10-07:** the part-owner company is Vernon LLC (minority Class B owner); the bio and the Aug 2025 Vernon timeline entry now reflect it. **Still open:** the ownership start date and preferred public title — once supplied, the Vernon ownership can become its own dated timeline entry. Keep Vernon client names and CRM specifics (client, pricing, timeline) off the site; the public copy stays at "manufacturing-process digitization" and "a custom CRM now in design".
+- The Instagram entry was removed from `social.json` (2026-10-07); restore it once a real profile URL is supplied.
+- The Playmaker Sports and Properly Stumped project thumbnails are generated placeholders (2026-10-07); replace `PlaymakerSports-Screenshot.png` and `ProperlyStumped-Screenshot.png` in `public/images/projects/` with real screenshots.
+- Fixed 2026-10-07: bio now leads with the Beyond79 full-time role; Tulane entry reads "Graduated May 2026" with an end year; timeline adds t8 (Tulane graduation, May 2026) and t9 (Software Developer at Beyond79, Jul 2026); `placesLived` no longer shows two "Present" rows; RecyclePlatinum `liveUrl` points at production; metadata description updated; skills add PHP, Swift, FastAPI, AWS, Cloudflare, SEO & AEO, Claude Code; Playmaker Sports and Properly Stumped added as professional projects.
 
 **Open decisions:** which projects lead, and whether skills keep their self-rated percentage levels. Both should now be judged against the career-record purpose, not a job-search one.
 

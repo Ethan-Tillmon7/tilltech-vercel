@@ -1,13 +1,14 @@
 {
-  "bio": "M.S. IT Management student at Tulane University focused on data, cloud, and practical systems delivery. Product-minded builder with a software engineering foundation and experience delivering client-facing systems — from legacy modernization and workflow digitization to performance optimization and SEO. Comfortable in situations to define problems, iterate quickly, and ship practical solutions.",
+  "bio": "Software Developer at Beyond79, a precious-metals e-commerce company — working across a five-brand site portfolio on performance optimization, SEO and answer-engine optimization (AEO), and platform modernization. Also a part owner at Vernon LLC, an AI & automation consulting firm: building client systems from manufacturing-process digitization to a custom CRM now in design, and leading business development — most recently bringing Playmaker Sports on as a retainer client. Product-minded builder with a software engineering foundation: define the problem, iterate quickly, ship practical solutions.",
   "education": [
     {
       "institution": "Tulane University of Louisiana",
       "degree": "Master of Science",
       "field": "Information Technology Management",
       "startYear": 2024,
+      "endYear": 2026,
       "location": "New Orleans, LA",
-      "highlights": ["Data Science & Cloud Certificate", "GPA: 3.832/4.0", "Expected May 2026"]
+      "highlights": ["Data Science & Cloud Certificate", "GPA: 3.832/4.0", "Graduated May 2026"]
     },
     {
       "institution": "Louisiana State University",
@@ -31,8 +32,8 @@
   "placesLived": [
     { "city": "Kansas City", "state": "MO", "years": "Born", "description": "Where it all started" },
     { "city": "Leawood", "state": "KS", "years": "2013–2020", "description": "Growing up in the KC metro" },
-    { "city": "Baton Rouge", "state": "LA", "years": "2020–Present", "description": "Home base — LSU & beyond" },
-    { "city": "New Orleans", "state": "LA", "years": "2024–Present", "description": "Graduate studies at Tulane" }
+    { "city": "Baton Rouge", "state": "LA", "years": "2020–2026", "description": "Home base — LSU & beyond" },
+    { "city": "New Orleans", "state": "LA", "years": "2024–Present", "description": "Tulane, then Mid-City home base" }
   ],
   "timeline": [
     {
@@ -95,9 +96,25 @@
       "id": "t7",
       "date": "Aug 2025",
       "title": "Developer at Vernon LLC",
-      "description": "Supporting a 4-person startup delivering manufacturing process digitization and custom client automations",
+      "description": "Joined a 4-person AI & automation startup delivering manufacturing process digitization and custom client systems — later becoming a part owner and leading new client acquisition",
       "type": "career",
       "location": "Kansas City, MO"
+    },
+    {
+      "id": "t8",
+      "date": "May 2026",
+      "title": "Graduated from Tulane",
+      "description": "Earned M.S. in Information Technology Management with a Graduate Certificate in Data Science & Cloud — 3.83 GPA",
+      "type": "education",
+      "location": "New Orleans, LA"
+    },
+    {
+      "id": "t9",
+      "date": "Jul 2026",
+      "title": "Software Developer at Beyond79",
+      "description": "Full-time developer across Beyond79's five-brand precious-metals e-commerce portfolio — performance optimization of high-traffic landing pages, AEO/AI-search visibility, and ongoing platform modernization",
+      "type": "career",
+      "location": "Remote — New Orleans, LA"
     }
   ]
 }
