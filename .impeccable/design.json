@@ -1,0 +1,324 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T03:32:56+00:00",
+  "title": "Design System: TillTechnologies.ai",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Terminal Green",
+        "canonical": "oklch(69.7% 0.194 142.9)",
+        "tonalRamp": [
+          "#001001",
+          "#022f03",
+          "#075108",
+          "#107613",
+          "#1a9d1d",
+          "#4bc248",
+          "#73e86e",
+          "#ccffc8"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Deep Green",
+        "canonical": "oklch(65.4% 0.212 142.4)",
+        "tonalRamp": [
+          "#001000",
+          "#012f01",
+          "#035102",
+          "#097606",
+          "#129e0d",
+          "#3ec438",
+          "#69ea61",
+          "#cdfec8"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Dusk Slate",
+        "canonical": "oklch(42.8% 0.044 300.4)",
+        "tonalRamp": [
+          "#0e061a",
+          "#282037",
+          "#463d56",
+          "#655c77",
+          "#867d99",
+          "#a99fbd",
+          "#cdc3e2",
+          "#f1ebff"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Night Black",
+        "canonical": "oklch(9.3% 0.007 145.0)",
+        "tonalRamp": [
+          "#090c09",
+          "#232623",
+          "#404340",
+          "#5f625f",
+          "#808380",
+          "#a2a6a2",
+          "#c6cac6",
+          "#ecf0ec"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Screen White",
+        "canonical": "oklch(95.0% 0.014 145.5)",
+        "tonalRamp": [
+          "#080d08",
+          "#212721",
+          "#3e443e",
+          "#5d635d",
+          "#7d857d",
+          "#a0a7a0",
+          "#c4ccc4",
+          "#e9f1e9"
+        ]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Error Red",
+        "canonical": "oklch(71.1% 0.166 22.2)",
+        "tonalRamp": [
+          "#1e0002",
+          "#4c010b",
+          "#7f0419",
+          "#ac2933",
+          "#d35053",
+          "#fc7474",
+          "#ffb2af",
+          "#fee9e7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Typed page titles and hero lines; Press Start 2P, always Terminal Green."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings inside a page (Timeline, Skills)."
+      },
+      "label": {
+        "displayName": "Pixel Label",
+        "purpose": "A few words only: logo, card labels, skill categories, mobile nav."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project and timeline titles in Lato bold."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Page subtitle under the typed title, Screen White at 70%."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions and bio copy at 60-70% opacity."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Uppercase timeline dates in green at 70%."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-card",
+        "value": "0 0 20px rgba(66, 186, 64, 0.15)",
+        "purpose": "Hover glow on generic cards."
+      },
+      {
+        "name": "glow-project",
+        "value": "0 0 25px rgba(66, 186, 64, 0.1)",
+        "purpose": "Hover glow on project cards."
+      },
+      {
+        "name": "glow-preview",
+        "value": "0 0 30px rgba(66, 186, 64, 0.12)",
+        "purpose": "Hover glow on home section cards (paired with up to 8deg tilt)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "hover-lift",
+        "value": "translateY(-4px) over 0.2-0.25s",
+        "purpose": "Card hover lift; preview cards lift 6px."
+      },
+      {
+        "name": "button-press",
+        "value": "scale 1.03 hover / 0.97 tap",
+        "purpose": "All buttons."
+      },
+      {
+        "name": "section-reveal",
+        "value": "opacity 0->1, y 40px->0, 0.6s easeOut, once, -80px margin",
+        "purpose": "Each page section as it enters the viewport."
+      },
+      {
+        "name": "item-reveal",
+        "value": "opacity 0->1, y 20-30px->0, 0.5s, stagger 0.1s",
+        "purpose": "Cards and list items in a grid."
+      },
+      {
+        "name": "page-fade",
+        "value": "opacity 0->1, 0.3s",
+        "purpose": "Route transitions."
+      },
+      {
+        "name": "type-on",
+        "value": "react-type-animation speed 50 with cursor",
+        "purpose": "Page titles and hero lines; content waits for typing to finish."
+      },
+      {
+        "name": "glitch-scramble",
+        "value": "400ms in 30ms ticks, charset !@#$%^&*()_+-=[]{}|;:,.<>?/~`01",
+        "purpose": "Card titles on hover, resolving left to right."
+      },
+      {
+        "name": "particle-drift",
+        "value": "float-up 20-32s linear infinite, 1-3px dots",
+        "purpose": "Ambient background layer."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "container",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call to action, e.g. Send Message.",
+      "html": "<button class=\"ds-btn-primary\">Send Message</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--color-primary,#42ba40);color:var(--color-background,#020302);font-family:Lato,sans-serif;font-weight:700;font-size:16px;padding:12px 24px;border:none;border-radius:8px;cursor:pointer;transition:background-color .15s,transform .2s}.ds-btn-primary:hover{background:var(--color-accent,#1eae19);transform:scale(1.03)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid var(--color-primary,#42ba40);outline-offset:3px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action on a card, e.g. Download PDF.",
+      "html": "<button class=\"ds-btn-outline\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3v12\"/><path d=\"m7 10 5 5 5-5\"/><path d=\"M5 21h14\"/></svg>Download PDF</button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--color-primary,#42ba40);border:2px solid var(--color-primary,#42ba40);font-family:Lato,sans-serif;font-weight:700;font-size:14px;padding:8px 16px;border-radius:8px;cursor:pointer;transition:background-color .15s,color .15s,transform .2s}.ds-btn-outline:hover{background:var(--color-primary,#42ba40);color:var(--color-background,#020302);transform:scale(1.03)}.ds-btn-outline:active{transform:scale(.97)}.ds-btn-outline:focus-visible{outline:2px solid var(--color-primary,#42ba40);outline-offset:3px}"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact form field: dim at rest, green border on focus.",
+      "html": "<input class=\"ds-input\" placeholder=\"Your Email\" />",
+      "css": ".ds-input{width:280px;background:rgba(2,3,2,.5);color:var(--color-text,#e9f1e9);border:1px solid rgba(83,74,100,.3);border-radius:8px;padding:12px 16px;font-family:Lato,sans-serif;font-size:16px;outline:none;transition:border-color .15s}.ds-input::placeholder{color:rgba(233,241,233,.3)}.ds-input:focus,.ds-input:focus-visible{border-color:var(--color-primary,#42ba40)}"
+    },
+    {
+      "name": "Tech Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Informational tech-stack tag on project cards.",
+      "html": "<span class=\"ds-badge\">TypeScript</span>",
+      "css": ".ds-badge{display:inline-block;border-radius:9999px;border:1px solid rgba(66,186,64,.3);background:rgba(66,186,64,.1);color:var(--color-primary,#42ba40);padding:4px 12px;font-family:Lato,sans-serif;font-size:12px}"
+    },
+    {
+      "name": "Filter Pills",
+      "kind": "chip",
+      "refersTo": "filter-pill",
+      "description": "Project category filter; one active pill, the rest quiet until hovered.",
+      "html": "<div class=\"ds-pills\"><button class=\"ds-pill ds-pill--active\">All</button><button class=\"ds-pill\">Professional</button><button class=\"ds-pill\">Personal</button></div>",
+      "css": ".ds-pills{display:flex;gap:12px}.ds-pill{border-radius:9999px;padding:8px 16px;font-family:Lato,sans-serif;font-size:14px;background:transparent;color:rgba(233,241,233,.6);border:1px solid rgba(83,74,100,.3);cursor:pointer;transition:color .15s,border-color .15s}.ds-pill:hover{color:var(--color-primary,#42ba40);border-color:rgba(66,186,64,.5)}.ds-pill:focus-visible{outline:2px solid var(--color-primary,#42ba40);outline-offset:2px}.ds-pill--active,.ds-pill--active:hover{background:var(--color-primary,#42ba40);color:var(--color-background,#020302);border-color:transparent}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Flat translucent container that lifts and glows green on hover.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card__label\">Languages</h3><p class=\"ds-card__body\">TypeScript, Python, SQL</p></div>",
+      "css": ".ds-card{width:260px;background:rgba(2,3,2,.5);backdrop-filter:blur(8px);border:1px solid rgba(83,74,100,.3);border-radius:12px;padding:24px;transition:transform .2s,border-color .2s,box-shadow .2s}.ds-card:hover{transform:translateY(-4px);border-color:rgba(66,186,64,.5);box-shadow:0 0 20px rgba(66,186,64,.15)}.ds-card__label{margin:0 0 16px;font-family:'Press Start 2P',cursive;font-size:12px;font-weight:400;color:var(--color-primary,#42ba40)}.ds-card__body{margin:0;font-family:Lato,sans-serif;font-size:14px;line-height:1.625;color:rgba(233,241,233,.7)}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Pixel logo with quiet Lato links; active link in green.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__logo\" href=\"#\">TT</a><div class=\"ds-nav__links\"><a href=\"#\">About</a><a href=\"#\" class=\"is-active\">Portfolio</a><a href=\"#\">Connect</a></div></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;gap:48px;padding:16px 24px;background:rgba(2,3,2,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(83,74,100,.2)}.ds-nav__logo{font-family:'Press Start 2P',cursive;font-size:18px;color:var(--color-primary,#42ba40);text-decoration:none;transition:color .15s}.ds-nav__logo:hover{color:var(--color-accent,#1eae19)}.ds-nav__links{display:flex;gap:32px}.ds-nav__links a{font-family:Lato,sans-serif;font-size:14px;color:rgba(233,241,233,.7);text-decoration:none;transition:color .15s}.ds-nav__links a:hover,.ds-nav__links a.is-active{color:var(--color-primary,#42ba40)}.ds-nav a:focus-visible{outline:2px solid var(--color-primary,#42ba40);outline-offset:4px}"
+    },
+    {
+      "name": "Timeline Entry",
+      "kind": "custom",
+      "refersTo": "timeline",
+      "description": "Signature rail entry: ringed dot, green eyebrow date, bold title.",
+      "html": "<div class=\"ds-tl\"><div class=\"ds-tl__item\"><span class=\"ds-tl__dot\"></span><p class=\"ds-tl__date\">Aug 2025</p><h3 class=\"ds-tl__title\">Developer at Vernon LLC</h3><p class=\"ds-tl__desc\">Manufacturing process digitization and client automations.</p><p class=\"ds-tl__loc\">Kansas City, MO</p></div></div>",
+      "css": ".ds-tl{margin-left:16px;padding-left:32px;border-left:1px solid rgba(83,74,100,.3);max-width:360px}.ds-tl__item{position:relative}.ds-tl__dot{position:absolute;left:-41px;top:4px;width:16px;height:16px;box-sizing:border-box;border-radius:9999px;border:2px solid var(--color-secondary,#534a64);background:var(--color-secondary,#534a64)}.ds-tl__date{margin:0;font-family:Lato,sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:rgba(66,186,64,.7)}.ds-tl__title{margin:4px 0 0;font-family:Lato,sans-serif;font-size:18px;font-weight:700;color:var(--color-text,#e9f1e9)}.ds-tl__desc{margin:0;font-family:Lato,sans-serif;font-size:14px;color:rgba(233,241,233,.6)}.ds-tl__loc{margin:4px 0 0;font-family:Lato,sans-serif;font-size:12px;color:rgba(233,241,233,.4)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Hello World, Grown Up",
+    "overview": "The site starts the way every programmer started: a dark screen, green text, a blinking cursor typing \"Hello World...\". That nostalgia is the hook, and it is rationed. Retro moments mark the entrances: the hero, each page title being typed out, a pixel-font section heading, a title that scrambles when you hover it. Once you reach the work itself (project descriptions, the timeline, the bio), the system steps back into calm Lato on near-black so the content reads like a professional record, not a game.\n\nDensity is moderate and centered. Pages open with a centered, typed title and a quiet subtitle, then settle into a 1280px container of dim, thin-bordered cards. Almost everything is near-black, screen-white text at stepped opacities, and hairlines of Dusk Slate. Terminal Green is the only color that speaks, and it speaks when something is interactive, active, or important.\n\nThe ambient layer is deliberately faint: twelve 1–3px green particles drift up the page over 20–32 seconds, and the hero carries a 60px grid at 3% opacity. You notice them on a second look, never on the first.",
+    "keyCharacteristics": [
+      "Near-black screen (#020302) with a faint green cast, never pure black.",
+      "One chromatic voice: Terminal Green, with Deep Green as its pressed/hover state.",
+      "Press Start 2P for a few words at a time; Lato for everything a visitor actually reads.",
+      "Flat at rest; a green glow and a small lift appear only on interaction.",
+      "Motion that types, scrambles and reveals once, then gets out of the way."
+    ],
+    "rules": [
+      {
+        "name": "The One Green Voice Rule",
+        "body": "Terminal Green (and Deep Green as its hover) is the only accent. No blues, oranges or second brand colors. The one exception is the yellow star next to GitHub star counts, kept because it reads as the universal \"star\" icon.",
+        "section": "colors"
+      },
+      {
+        "name": "The Opacity Ladder Rule",
+        "body": "Text hierarchy is Screen White at fixed opacities: 100% for titles, 70% for subtitles and inactive nav, 60% for descriptions, 50% for links in tertiary positions and social icons, 40% for metadata (locations, footer copyright), 30% for placeholders. Don't introduce new gray hex values. Note: the 40% and 30% steps fall below 4.5:1 contrast on Night Black, so keep them to non-essential text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Few-Words Rule",
+        "body": "Press Start 2P is for short labels only: the logo, page titles, section headings, nav labels and labels of a few words. Never use it for body text, descriptions, button labels, form text, or anything that wraps to a second line on mobile.",
+        "section": "typography"
+      },
+      {
+        "name": "The Loaded-Weights Rule",
+        "body": "Lato ships at 300/400/700/900 only. Code that asks for 600 (`font-semibold`) renders a synthesized or substituted weight; use 700 for titles and buttons.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Is Earned Rule",
+        "body": "Nothing glows or casts a shadow at rest. Green light appears only in response to hover or focus, and it is always green, never a neutral drop shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Terminal Green (#42ba40) as the only accent, with Deep Green (#1eae19) strictly as its hover/pressed state.",
+      "Do build text hierarchy from Screen White opacity steps (100 / 70 / 60 / 50 / 40 / 30), and keep anything a visitor must read at 60% or above.",
+      "Do give new containers the card recipe: 50% Night Black fill, 8px blur, 1px Dusk Slate 30% border, 12px radius, 24px padding.",
+      "Do reserve retro motion (typing, glitch scramble) for entrances and hover rewards. Reveal content once on scroll, never on a loop.",
+      "Do use Lato 700 wherever code reaches for semibold."
+    ],
+    "donts": [
+      "Don't set body text, descriptions, buttons or form text in Press Start 2P (the Few-Words Rule).",
+      "Don't add resting shadows or neutral drop shadows. Glow is green and appears only on interaction.",
+      "Don't introduce new hues or gray hex values beyond the six tokens.",
+      "Don't replace Night Black with pure #000000 or Screen White with pure #ffffff. The faint green cast is part of the screen.",
+      "Don't let the ambient particles or the grid get louder than their current 1–3px dots and 3% opacity."
+    ]
+  }
+}
