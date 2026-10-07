@@ -1,9 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useReducedMotion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { useHydrated } from "@/hooks/useHydrated";
+
+const FIRST = "Hello World...";
+const SECOND = "Welcome to my site";
+const lineClasses = "font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl";
 
 export default function TypewriterHeader() {
+  const hydrated = useHydrated();
+  const reduceMotion = useReducedMotion();
   const [firstLineDone, setFirstLineDone] = useState(false);
   const [showSecondLine, setShowSecondLine] = useState(false);
 
@@ -14,36 +22,47 @@ export default function TypewriterHeader() {
     }
   }, [firstLineDone]);
 
+  // The heading lives in the server HTML; the typed lines below are decoration.
+  const heading = <h1 className="sr-only">{`${FIRST} ${SECOND}`}</h1>;
+
+  if (hydrated && reduceMotion) {
+    return (
+      <div className="flex flex-col items-center gap-4">
+        {heading}
+        <p aria-hidden="true" className={lineClasses}>{FIRST}</p>
+        <p aria-hidden="true" className={lineClasses}>{SECOND}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center gap-4">
+      {heading}
       {firstLineDone ? (
-        <h1 className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl">
-          Hello World...
-        </h1>
+        <p aria-hidden="true" className={lineClasses}>{FIRST}</p>
       ) : (
         <TypeAnimation
-          sequence={[
-            "Hello World...",
-            () => setFirstLineDone(true),
-          ]}
-          wrapper="h1"
+          sequence={[FIRST, () => setFirstLineDone(true)]}
+          wrapper="p"
           speed={50}
-          className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl"
+          className={lineClasses}
           cursor={true}
+          aria-hidden="true"
         />
       )}
       {showSecondLine ? (
         <TypeAnimation
-          sequence={["Welcome to my site"]}
-          wrapper="h2"
+          sequence={[SECOND]}
+          wrapper="p"
           speed={50}
-          className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl"
+          className={lineClasses}
           cursor={true}
+          aria-hidden="true"
         />
       ) : (
         // Reserve the second line's height so the centered hero doesn't jump when it types in.
-        <p aria-hidden="true" className="invisible font-pixel text-base leading-relaxed sm:text-xl md:text-2xl lg:text-3xl">
-          Welcome to my site
+        <p aria-hidden="true" className={`invisible ${lineClasses}`}>
+          {SECOND}
         </p>
       )}
     </div>

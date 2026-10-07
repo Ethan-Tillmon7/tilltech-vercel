@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import PageHeader from "./PageHeader";
 
 interface PageContentProps {
@@ -16,6 +16,9 @@ export default function PageContent({
   children,
 }: PageContentProps) {
   const [ready, setReady] = useState(false);
+  // With reduced motion there's no typing to wait for, so content shows straight away.
+  const reduceMotion = useReducedMotion();
+  const show = ready || reduceMotion;
 
   return (
     <>
@@ -26,7 +29,7 @@ export default function PageContent({
       />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
         {children}

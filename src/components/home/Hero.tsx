@@ -34,6 +34,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 5, duration: 1 }}
         className="absolute bottom-8"
+        aria-hidden="true"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

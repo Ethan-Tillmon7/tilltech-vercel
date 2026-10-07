@@ -10,17 +10,17 @@ colors:
   error: "#f87171"
 typography:
   display:
-    fontFamily: "'Press Start 2P', cursive"
+    fontFamily: "'Press Start 2P', ui-monospace, monospace"
     fontSize: "clamp(1.5rem, 4vw, 2.25rem)"
     fontWeight: 400
     lineHeight: 1.5
   headline:
-    fontFamily: "'Press Start 2P', cursive"
+    fontFamily: "'Press Start 2P', ui-monospace, monospace"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.5
   label:
-    fontFamily: "'Press Start 2P', cursive"
+    fontFamily: "'Press Start 2P', ui-monospace, monospace"
     fontSize: "0.75rem"
     fontWeight: 400
     lineHeight: 1.5
@@ -142,8 +142,10 @@ A monochrome near-black screen lit by a single phosphor green, with a muted viol
 
 ## Typography
 
-**Display Font:** Press Start 2P (with cursive fallback)
-**Body Font:** Lato (with sans-serif fallback), loaded at weights 300, 400, 700 and 900
+**Display Font:** Press Start 2P (with a monospace fallback, which stays blocky; `cursive` fell back to Comic Sans)
+**Body Font:** Lato (with system-ui, sans-serif fallback), loaded at weights 300, 400, 700 and 900
+
+Both faces are self-hosted through `next/font` in `layout.tsx`, not requested from Google at runtime.
 
 **Character:** An 8-bit arcade face paired with a warm, humanist sans-serif. The pixel font is the "Hello World" and Lato is the "Grown Up". The pixel font gets the first word; Lato carries the story.
 
@@ -241,6 +243,8 @@ Softly rounded rectangles for containers, full capsules for anything tag-like. C
 ### Inputs / Fields
 - **Style:** Night Black at 50% fill, 1px Dusk Slate 30% border, 8px radius, 12px × 16px padding, Screen White text, placeholder at 30%.
 - **Focus:** The border turns Terminal Green. There is no separate focus ring.
+- **Labels:** Placeholders are the visible labels; each field also has a screen-reader-only `<label>`. Near the 5,000-character cap, a counter appears under the message at 60% opacity.
+- **Keyboard focus elsewhere:** Every other focusable element gets a 2px Terminal Green outline, offset 3px, on `:focus-visible` only. Text selection is Terminal Green at 35%.
 - **Error:** A 12px Error Red message directly under the field. Send failures show a centered Error Red line. Success shows a centered Terminal Green line.
 
 ### Navigation

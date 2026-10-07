@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import navItems from "@/data/navigation.json";
@@ -25,10 +26,19 @@ const itemVariants = {
 };
 
 export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProps) {
+  const firstLink = useRef<HTMLAnchorElement>(null);
+
+  // Focus lands in the menu when it opens, so keyboard users start inside it.
+  useEffect(() => {
+    if (isOpen) firstLink.current?.focus();
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <motion.nav
+          id="mobile-menu"
+          aria-label="Menu"
           initial="closed"
           animate="open"
           exit="closed"
@@ -41,7 +51,9 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
               <Link
                 href={item.href}
                 onClick={onClose}
-                className={`font-pixel text-lg transition-colors hover:text-primary ${
+                ref={i === 0 ? firstLink : undefined}
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`inline-block px-4 py-2 font-pixel text-lg transition-colors hover:text-primary ${
                   pathname === item.href ? "text-primary" : "text-text/70"
                 }`}
               >
@@ -49,7 +61,7 @@ export default function MobileMenu({ isOpen, onClose, pathname }: MobileMenuProp
               </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.nav>
       )}
     </AnimatePresence>
   );
