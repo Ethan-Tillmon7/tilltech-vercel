@@ -78,8 +78,9 @@ export default function ContactForm() {
       noValidate
       className="relative mx-auto max-w-xl space-y-5"
     >
-      {/* Honeypot for bots. Hidden from people and assistive tech; the API drops anything that fills it. */}
-      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+      {/* Honeypot for bots: visually clipped (sr-only), and aria-hidden + tabIndex -1 keep it from
+          assistive tech and keyboards. The API drops anything that fills it. */}
+      <div aria-hidden="true" className="sr-only">
         <label htmlFor="contact-company">Company</label>
         <input id="contact-company" tabIndex={-1} autoComplete="off" {...register("company")} />
       </div>

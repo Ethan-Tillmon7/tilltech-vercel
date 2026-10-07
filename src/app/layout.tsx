@@ -51,7 +51,7 @@ export default function RootLayout({
       <body className="bg-background text-text font-lato antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-bold focus:text-background"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-60 focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:font-bold focus:text-background"
         >
           Skip to content
         </a>
