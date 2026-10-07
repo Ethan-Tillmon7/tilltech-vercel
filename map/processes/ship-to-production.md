@@ -1,7 +1,7 @@
 ---
 type: process
 status: verified
-verified: 2026-10-06 @ 0ab6594 (history check); script not yet run
+verified: 2026-10-06 @ 1d7c907; deploy main = bef3fb0 via ls-remote
 consumes: []
 produces: []
 ---
@@ -23,10 +23,12 @@ The deploy repo shares this repo's history: its `main` was `bef3fb0` on 2026-10-
 1. Commit your work on `main`.
 2. `npm run ship` (`scripts/ship.sh`). It:
    - refuses unless on `main` with a clean tree, untracked files included (`ship.sh:12-22`)
-   - adds the `vercel` remote on first run (`:24`)
-   - refuses if `vercel/main` isn't an ancestor of `HEAD` (`:29-33`)
-   - exits early if there's nothing to ship (`:35-39`)
-   - runs `npm run build`, then pushes `origin` and `vercel` (`:44-47`)
+   - fetches the deploy repo **by URL**, not by remote name (`:25-26`)
+   - refuses if the deployed commit isn't an ancestor of `HEAD` (`:28-32`)
+   - exits early if there's nothing to ship (`:34-38`)
+   - runs `npm run build`, then pushes `origin` and the deploy URL (`:43-46`)
+
+Local remotes as of 2026-10-06: `vercel` points at a nonexistent `tilltechnologies-vercel.git`, and `tilltech` and `vercel-repo` both point at the right URL. The script ignores all three. The first version used a remote named `vercel` and failed on that collision.
 3. Watch the deploy in the Vercel dashboard for the `tilltech-vercel` project.
 
 ## If you change this
