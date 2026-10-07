@@ -63,7 +63,7 @@ A product-minded builder with a software engineering foundation who has shipped 
 - Résumé: `public/resume/Resumé v1.4-PDF.pdf` (uploaded 2026-10-06; Word source beside it). Earlier versions are in `docs/_archive/resume/`.
 - Profile image: `public/images/profile/CompositePicture.png`.
 - Project screenshots in `public/images/projects/`: Joshinator (3), Encore (3), RAgent docs, RecyclePlatinum, Vernon order lookup, Blackjack. Also the Retro Rumble demo video (`RetroRumbleDemo.mp4`) and a `Coupa Certs` folder.
-- Public GitHub repos: joshinator-analyzer, RAgent, Letter-Links, Retro-Rumble, IEEE754-Convertor (under `Ethan-Tillmon7`).
+- Public GitHub repos: joshinator-analyzer, Retro-Rumble, IEEE754-Convertor (under `Ethan-Tillmon7`). RAgent and Letter-Links repos are not public (404 as of 2026-10-06), so their cards have no Code link.
 - Education and career facts in `src/data/about.json`. Projects in `src/data/projects.json`.
 
 **Absent, never fabricate:** testimonials, client quotes, outcome metrics (traffic, revenue, performance numbers), user counts for personal projects, employer names or titles not supplied by Ethan.

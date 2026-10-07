@@ -6,6 +6,7 @@ import projectsData from "@/data/projects.json";
 let cached: Record<string, GitHubRepoInfo> | null = null;
 let cacheExpiry = 0;
 const CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+const RETRY_TTL = 5 * 60 * 1000; // after a failed refresh
 
 export async function GET() {
   try {
@@ -33,8 +34,17 @@ export async function GET() {
 
     await Promise.all(fetches);
 
+    // An empty result usually means GitHub rate-limited us. Keep serving the last good
+    // set rather than caching nothing for 30 minutes.
+    if (Object.keys(repos).length === 0 && cached) {
+      cacheExpiry = now + RETRY_TTL;
+      return NextResponse.json(cached, {
+        headers: { "Cache-Control": "s-maxage=300, stale-while-revalidate=900" },
+      });
+    }
+
     cached = repos;
-    cacheExpiry = now + CACHE_TTL;
+    cacheExpiry = now + (Object.keys(repos).length === 0 ? RETRY_TTL : CACHE_TTL);
 
     return NextResponse.json(repos, {
       headers: { "Cache-Control": "s-maxage=1800, stale-while-revalidate=900" },

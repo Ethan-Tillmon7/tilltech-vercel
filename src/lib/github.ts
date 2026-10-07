@@ -14,7 +14,15 @@ export async function getRepoInfo(
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
-  const res = await fetch(`${GITHUB_API}/repos/${owner}/${repo}`, { headers });
+  // A slow GitHub shouldn't hold the whole stats response hostage; stats are optional.
+  const url = `${GITHUB_API}/repos/${owner}/${repo}`;
+  let res = await fetch(url, { headers, signal: AbortSignal.timeout(5000) });
+
+  // An expired or revoked token fails every request; public repos still answer without one.
+  if (res.status === 401 && headers.Authorization) {
+    delete headers.Authorization;
+    res = await fetch(url, { headers, signal: AbortSignal.timeout(5000) });
+  }
 
   if (!res.ok) {
     throw new Error(`GitHub API error: ${res.status} for ${owner}/${repo}`);
