@@ -37,14 +37,14 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-4 md:flex">
             {navItems
               .filter((item) => item.href !== "/")
               .map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm transition-colors hover:text-primary ${
+                  className={`px-2 py-3 text-sm transition-colors hover:text-primary ${
                     pathname === item.href ? "text-primary" : "text-text/70"
                   }`}
                 >
@@ -56,7 +56,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="text-text transition-colors hover:text-primary md:hidden"
+            className="-mr-2.5 p-2.5 text-text transition-colors hover:text-primary md:hidden"
             aria-label="Toggle menu"
           >
             {isMobileOpen ? <FaTimes size={22} /> : <FaBars size={22} />}

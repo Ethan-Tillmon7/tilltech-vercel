@@ -15,17 +15,20 @@ export default function AboutPage() {
   return (
     <SectionWrapper>
       <PageContent title="About Me" subtitle="My story, education, and the places that shaped me.">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-          {/* Left column: Bio + Education + Places Lived */}
-          <div className="space-y-12">
+        {/* DOM order is the mobile reading order: who → what now → background → personal.
+            On desktop the timeline spans the right column; the 1fr row absorbs any height difference. */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:grid-rows-[auto_auto_1fr]">
+          <div className="lg:col-start-1 lg:row-start-1">
             <Bio />
-            <Education />
-            <PlacesLived />
           </div>
-
-          {/* Right column: Timeline */}
-          <div>
+          <div className="lg:col-start-2 lg:row-span-3 lg:row-start-1">
             <Timeline />
+          </div>
+          <div className="lg:col-start-1 lg:row-start-2">
+            <Education />
+          </div>
+          <div className="lg:col-start-1 lg:row-start-3">
+            <PlacesLived />
           </div>
         </div>
       </PageContent>

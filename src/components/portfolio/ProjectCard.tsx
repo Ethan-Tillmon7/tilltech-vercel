@@ -76,25 +76,32 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                 />
               </motion.div>
             </AnimatePresence>
+            {/* Arrows reveal on hover for pointers, stay visible on touch, and show on keyboard focus. */}
             <button
               onClick={(e) => { e.preventDefault(); setSlideIndex((slideIndex - 1 + slides.length) % slides.length); }}
-              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-1.5 text-primary opacity-0 transition-opacity group-hover:opacity-100"
+              aria-label="Previous screenshot"
+              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-2.5 text-primary opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
             >
-              <FaChevronLeft size={10} />
+              <FaChevronLeft size={12} />
             </button>
             <button
               onClick={(e) => { e.preventDefault(); setSlideIndex((slideIndex + 1) % slides.length); }}
-              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-1.5 text-primary opacity-0 transition-opacity group-hover:opacity-100"
+              aria-label="Next screenshot"
+              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-background/70 p-2.5 text-primary opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 [@media(hover:none)]:opacity-100"
             >
-              <FaChevronRight size={10} />
+              <FaChevronRight size={12} />
             </button>
-            <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1">
+            <div className="absolute bottom-0 left-1/2 z-10 flex -translate-x-1/2">
               {slides.map((_, i) => (
                 <button
                   key={i}
                   onClick={(e) => { e.preventDefault(); setSlideIndex(i); }}
-                  className={`h-1.5 w-1.5 rounded-full transition-colors ${i === slideIndex ? "bg-primary" : "bg-text/30"}`}
-                />
+                  aria-label={`Show screenshot ${i + 1}`}
+                  aria-current={i === slideIndex}
+                  className="p-2.5"
+                >
+                  <span className={`block h-1.5 w-1.5 rounded-full transition-colors ${i === slideIndex ? "bg-primary" : "bg-text/30"}`} />
+                </button>
               ))}
             </div>
           </div>
@@ -113,9 +120,20 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
             ))}
           </div>
         ) : imgError ? (
-          <div className="flex h-48 items-center justify-center bg-secondary/10">
-            <span className="font-pixel text-[0.6rem] text-primary/30">
-              Image coming soon...
+          // No screenshot yet: keep the well so rows stay even, and draw it as a blank screen
+          // (the hero's 3% grid) carrying the project's name, not an apology.
+          <div className="relative flex h-48 items-center justify-center overflow-hidden bg-secondary/10 px-6">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 opacity-[0.05]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(66,186,64,1) 1px, transparent 1px), linear-gradient(90deg, rgba(66,186,64,1) 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            <span aria-hidden="true" className="relative text-center font-pixel text-xs leading-relaxed text-primary/40">
+              {project.title}
             </span>
           </div>
         ) : (
@@ -132,19 +150,18 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
         )}
 
         <div className="flex flex-1 flex-col p-6">
-          <div className="mb-2 flex items-center justify-between gap-2">
-            <GlitchText text={project.title} as="h3" className="font-semibold text-text" />
-            <div className="flex shrink-0 items-center gap-1.5">
-              {project.status === "in-development" && (
-                <span className="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">
-                  In Development
-                </span>
-              )}
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs capitalize text-primary/70">
-                {project.category}
+          {/* Chips sit above the title so the title gets the full row and never wraps to make room. */}
+          <div className="mb-2 flex flex-wrap items-center gap-1.5">
+            <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs capitalize text-primary/70">
+              {project.category}
+            </span>
+            {project.status === "in-development" && (
+              <span className="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                In Development
               </span>
-            </div>
+            )}
           </div>
+          <GlitchText text={project.title} as="h3" className="mb-2 text-lg font-bold text-text" />
 
           <p className="mb-4 flex-1 text-sm leading-relaxed text-text/60">
             {project.description}
@@ -162,7 +179,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-text/50 transition-colors hover:text-primary"
+                className="-my-2 flex items-center gap-2 py-2 text-sm text-text/50 transition-colors hover:text-primary"
               >
                 <FaGithub /> Code
               </a>
@@ -180,7 +197,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-text/50 transition-colors hover:text-primary"
+                className="-my-2 flex items-center gap-2 py-2 text-sm text-text/50 transition-colors hover:text-primary"
               >
                 <FaExternalLinkAlt /> Live
               </a>

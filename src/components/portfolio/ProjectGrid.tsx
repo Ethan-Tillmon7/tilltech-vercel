@@ -22,12 +22,12 @@ export default function ProjectGrid() {
   return (
     <div>
       {/* Filter buttons */}
-      <div className="mb-8 flex flex-wrap justify-center gap-3">
+      <div className="mb-8 flex flex-wrap gap-2 sm:gap-3">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className={`rounded-full px-4 py-2 text-sm capitalize transition-colors ${
+            className={`min-h-10 rounded-full px-3 py-2 text-sm capitalize transition-colors sm:px-4 ${
               filter === cat
                 ? "bg-primary text-background"
                 : "border border-secondary/30 text-text/60 hover:border-primary/50 hover:text-primary"

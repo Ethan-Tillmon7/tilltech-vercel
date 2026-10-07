@@ -15,12 +15,14 @@ export default function ResumeViewer() {
       viewport={{ once: true }}
       className="rounded-xl border border-secondary/30 bg-background/50"
     >
-      <div className="flex items-center justify-between p-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-6">
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="flex items-center gap-3"
+          aria-expanded={open}
+          aria-controls="resume-preview"
+          className="-m-2 flex min-h-11 items-center gap-3 rounded-lg p-2 text-sm font-bold text-text/70 transition-colors hover:text-primary"
         >
-          <h3 className="font-pixel text-xs text-primary">Resume</h3>
+          {open ? "Hide preview" : "Preview"}
           <motion.span
             animate={{ rotate: open ? 180 : 0 }}
             transition={{ duration: 0.2 }}
@@ -42,6 +44,7 @@ export default function ResumeViewer() {
         {open && (
           <motion.div
             key="resume-iframe"
+            id="resume-preview"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

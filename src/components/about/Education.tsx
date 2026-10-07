@@ -7,7 +7,7 @@ import aboutData from "@/data/about.json";
 export default function Education() {
   return (
     <div>
-      <h2 className="mb-8 font-pixel text-sm text-primary sm:text-base">
+      <h2 className="mb-4 font-pixel text-sm text-primary sm:text-base">
         Education
       </h2>
       <div className="space-y-6">

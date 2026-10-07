@@ -32,7 +32,7 @@ export default function TypewriterHeader() {
           cursor={true}
         />
       )}
-      {showSecondLine && (
+      {showSecondLine ? (
         <TypeAnimation
           sequence={["Welcome to my site"]}
           wrapper="h2"
@@ -40,6 +40,11 @@ export default function TypewriterHeader() {
           className="font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl"
           cursor={true}
         />
+      ) : (
+        // Reserve the second line's height so the centered hero doesn't jump when it types in.
+        <p aria-hidden="true" className="invisible font-pixel text-base leading-relaxed sm:text-xl md:text-2xl lg:text-3xl">
+          Welcome to my site
+        </p>
       )}
     </div>
   );

@@ -25,8 +25,8 @@ const sections = [
 
 export default function SectionGrid() {
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-3">
         {sections.map((section, i) => (
           <SectionPreviewCard key={section.href} {...section} index={i} />
         ))}

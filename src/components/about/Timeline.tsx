@@ -13,11 +13,11 @@ const typeColors: Record<string, string> = {
 export default function Timeline() {
   return (
     <div>
-      <h2 className="mb-8 font-pixel text-sm text-primary sm:text-base">
+      <h2 className="mb-4 font-pixel text-sm text-primary sm:text-base">
         Timeline
       </h2>
       <div className="relative ml-4 border-l border-secondary/30 pl-8">
-        {aboutData.timeline.map((event, i) => (
+        {[...aboutData.timeline].reverse().map((event, i) => (
           <motion.div
             key={event.id}
             initial={{ opacity: 0, x: -20 }}
@@ -35,7 +35,7 @@ export default function Timeline() {
             <p className="text-xs font-bold uppercase tracking-wider text-primary/70">
               {event.date}
             </p>
-            <h3 className="mt-1 text-lg font-semibold text-text">
+            <h3 className="mt-1 text-lg font-bold text-text">
               {event.title}
             </h3>
             <p className="text-sm text-text/60">{event.description}</p>

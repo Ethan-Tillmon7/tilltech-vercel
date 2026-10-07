@@ -11,18 +11,16 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      <SectionWrapper>
-        <PageContent
-          title="Connect"
-          subtitle="Get in touch — let's build something together."
-        >
-          <ContactForm />
-        </PageContent>
-      </SectionWrapper>
-      <SectionWrapper>
-        <SocialLinks />
-      </SectionWrapper>
-    </>
+    <SectionWrapper>
+      <PageContent
+        title="Connect"
+        subtitle="Get in touch — let's build something together."
+      >
+        <ContactForm />
+        <div className="mt-12">
+          <SocialLinks />
+        </div>
+      </PageContent>
+    </SectionWrapper>
   );
 }

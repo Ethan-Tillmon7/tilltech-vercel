@@ -22,14 +22,9 @@ export default function Bio() {
         priority
       />
 
-      <div>
-        <h2 className="mb-4 font-pixel text-sm text-primary sm:text-base">
-          About Me
-        </h2>
-        <p className="leading-relaxed text-text/80">
-          {aboutData.bio}
-        </p>
-      </div>
+      <p className="leading-relaxed text-text/80">
+        {aboutData.bio}
+      </p>
     </motion.div>
   );
 }

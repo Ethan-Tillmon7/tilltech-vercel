@@ -6,7 +6,7 @@ import TypewriterHeader from "./TypewriterHeader";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4">
+    <section className="relative flex min-h-[70svh] flex-col items-center justify-center px-4 py-16 lg:min-h-[calc(100svh-4rem)]">
       {/* Ambient grid background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div

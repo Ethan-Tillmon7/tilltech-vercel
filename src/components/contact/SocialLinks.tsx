@@ -12,7 +12,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function SocialLinks() {
   return (
-    <div className="flex justify-center gap-6">
+    <div className="flex justify-center gap-2">
       {socialData.map((social, i) => (
         <motion.a
           key={social.platform}
@@ -24,7 +24,7 @@ export default function SocialLinks() {
           viewport={{ once: true }}
           transition={{ delay: i * 0.1 }}
           whileHover={{ scale: 1.2, color: "#42ba40" }}
-          className="text-text/50 transition-colors hover:text-primary"
+          className="p-2 text-text/50 transition-colors hover:text-primary"
           aria-label={social.platform}
         >
           {iconMap[social.icon] ?? null}

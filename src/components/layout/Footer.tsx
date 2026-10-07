@@ -19,14 +19,14 @@ export default function Footer() {
             Till Technologies
           </Link>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-1">
             {socialData.map((social) => (
               <a
                 key={social.platform}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text/50 transition-colors hover:text-primary"
+                className="p-2.5 text-text/50 transition-colors hover:text-primary"
                 aria-label={social.platform}
               >
                 {iconMap[social.icon] ?? null}
