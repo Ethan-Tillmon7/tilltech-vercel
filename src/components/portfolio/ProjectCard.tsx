@@ -78,7 +78,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
         {project.demoUrl && !videoError ? (
           // Hover plays it for a mouse; a tap (or Enter/Space) toggles it everywhere else.
           <div
-            className="relative h-48 overflow-hidden bg-secondary/10"
+            className="relative h-48 overflow-hidden bg-secondary/10 print:hidden"
             onPointerEnter={(e) => e.pointerType === "mouse" && playDemo()}
             onPointerLeave={(e) => e.pointerType === "mouse" && stopDemo()}
           >

@@ -7,7 +7,7 @@ import { useHydrated } from "@/hooks/useHydrated";
 
 const FIRST = "Hello World...";
 const SECOND = "Welcome to my site";
-const lineClasses = "font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl";
+const lineClasses = "font-pixel text-base leading-relaxed text-primary sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl";
 
 export default function TypewriterHeader() {
   const hydrated = useHydrated();

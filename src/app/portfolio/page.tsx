@@ -42,7 +42,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section aria-labelledby="resume-heading" className="mt-16">
+        <section aria-labelledby="resume-heading" className="mt-16 print:hidden">
           <h2 id="resume-heading" className={sectionHeading}>
             Resume
           </h2>

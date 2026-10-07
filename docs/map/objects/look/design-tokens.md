@@ -3,7 +3,7 @@ type: object
 cluster: look
 universe: live
 status: verified
-verified: 2026-10-06 @ 0ab6594
+verified: 2026-10-06 @ working tree (post-harden + adapt)
 entity: src/app/globals.css
 ---
 
@@ -21,7 +21,7 @@ Tailwind v4 reads tokens from a CSS `@theme` block, which gives classes like `te
 - Tailwind tokens: `@theme` at `globals.css:4-13`
 - **Duplicate** plain variables: `:root` at `globals.css:15-21`, used by `body` and the scrollbar (`:23-48`)
 - Body defaults: `src/app/layout.tsx:28`
-- Some components hardcode the green as `rgba(66, 186, 64, …)`, e.g. `src/components/portfolio/ProjectCard.tsx:35`
+- Some components hardcode the green as `rgba(66, 186, 64, …)`, e.g. `src/components/portfolio/ProjectCard.tsx:72`
 - `.impeccable/design.json` is generated from DESIGN.md by the impeccable tool. Don't hand-edit it.
 
 ## Connected to

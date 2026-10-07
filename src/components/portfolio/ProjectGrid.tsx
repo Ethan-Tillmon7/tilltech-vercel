@@ -29,14 +29,14 @@ export default function ProjectGrid() {
   return (
     <div>
       {/* Filter buttons (hidden when there's nothing to choose between) */}
-      <div className={`mb-8 flex flex-wrap gap-2 sm:gap-3 ${categories.length < 3 ? "hidden" : ""}`}>
+      <div className={`-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:gap-3 sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden ${categories.length < 3 ? "hidden" : ""}`}>
         {categories.map((cat) => (
           <button
             key={cat}
             type="button"
             aria-pressed={filter === cat}
             onClick={() => setFilter(cat)}
-            className={`min-h-10 rounded-full px-3 py-2 text-sm capitalize transition-colors sm:px-4 ${
+            className={`min-h-10 shrink-0 rounded-full px-3 py-2 text-sm capitalize transition-colors sm:px-4 ${
               filter === cat
                 ? "bg-primary text-background"
                 : "border border-secondary/30 text-text/60 hover:border-primary/50 hover:text-primary"
@@ -50,7 +50,7 @@ export default function ProjectGrid() {
       {/* Project grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-2"
       >
         <AnimatePresence>
           {filtered.map((project, i) => (

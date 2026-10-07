@@ -24,6 +24,7 @@ export default function Timeline() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
+            data-print-keep
             className="relative mb-10 last:mb-0"
           >
             {/* Dot */}

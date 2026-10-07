@@ -12,8 +12,9 @@ export default function TiltCard({ children, className = "" }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
 
-  function handleMouseMove(e: React.MouseEvent) {
-    if (!ref.current) return;
+  // Mouse only: a tap fires one emulated move and no leave, which would leave the card stuck tilted.
+  function handleMouseMove(e: React.PointerEvent) {
+    if (e.pointerType !== "mouse" || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -34,8 +35,8 @@ export default function TiltCard({ children, className = "" }: TiltCardProps) {
   return (
     <motion.div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onPointerMove={handleMouseMove}
+      onPointerLeave={handleMouseLeave}
       animate={{
         rotateX: tilt.rotateX,
         rotateY: tilt.rotateY,

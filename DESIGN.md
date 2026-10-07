@@ -150,7 +150,7 @@ Both faces are self-hosted through `next/font` in `layout.tsx`, not requested fr
 **Character:** An 8-bit arcade face paired with a warm, humanist sans-serif. The pixel font is the "Hello World" and Lato is the "Grown Up". The pixel font gets the first word; Lato carries the story.
 
 ### Hierarchy
-- **Display** (Press Start 2P 400, 1.5rem → 2.25rem by breakpoint, line-height 1.5): Page titles, typed out on load, and the hero lines (1rem → 1.875rem, relaxed leading). Always Terminal Green, always centered.
+- **Display** (Press Start 2P 400, 1.5rem → 2.25rem by breakpoint, line-height 1.5): Page titles, typed out on load, and the hero lines (1rem → 1.875rem, reaching the 2.25rem maximum at 1536px+, relaxed leading). Always Terminal Green, always centered.
 - **Headline** (Press Start 2P 400, 0.875rem → 1rem): Section headings within a page ("Timeline", "Projects", "Skills", "Resume"). Terminal Green, left-aligned, 16–24px above their content.
 - **Label** (Press Start 2P 400, 0.75rem): Short labels: skill category names (Screen White 70%), the home preview card titles, the project title in an image-less media well, and the "TT" logo (1.125rem). Mobile nav links use it at 1.125rem.
 - **Title** (Lato 700, 1rem–1.125rem, line-height ~1.4): Project titles and timeline entry titles, in Screen White.
@@ -191,7 +191,21 @@ Spacing follows Tailwind's 4px rhythm. The recurring steps are 4, 8, 16, 24, 32,
 
 **Touch targets.** Anything tappable gets at least a 40px hit area through padding, even when its visible mark is smaller: icons, the hamburger, carousel dots, text links. Hover-only controls stay visible on devices without hover.
 
-The fixed header is 64px tall, and page content starts below it. The hero is 70% of the viewport tall below 1024px, so the section cards begin on a phone's first screen. From 1024px it fills the viewport, with its content centered.
+The fixed header is 64px tall, and page content starts below it. The hero is 70% of the viewport tall below 1024px, so the section cards begin on a phone's first screen. From 1024px it fills the viewport, capped at 960px so a large desktop screen doesn't push the section cards out of view.
+
+**Input modes.** Hover effects are mouse-only, triggered by `pointerType === "mouse"` or `@media (hover: hover)`: card lifts, the home cards' tilt, glitch titles, and demo videos that play on hover. Touch and keyboard get the same content through taps and focus: a tap plays or stops a demo, and carousel arrows stay visible. No hover effect may leave a card stuck in its hovered state after a tap.
+
+**Narrow phones.** Below 640px, the filter pills form one row that scrolls sideways instead of wrapping, so no pill sits alone on a second line.
+
+**Print.** About and Portfolio print as a paper career record in the same words:
+
+- Night Black on white, with every accent color mapped to black.
+- No header, footer, particles, buttons, forms, videos or résumé panel.
+- Every scroll reveal shown at rest.
+- Cards and timeline entries kept whole across page breaks, and projects two to a row.
+- External links followed by their URL.
+
+The rules live in the `@media print` block at the end of `globals.css`.
 
 ## Elevation & Depth
 

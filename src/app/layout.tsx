@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lato, Press_Start_2P } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -31,6 +31,13 @@ export const metadata: Metadata = {
     "Ethan Tillmon",
     "TillTechnologies",
   ],
+};
+
+// Phone browser chrome (address bar, overscroll) matches Night Black instead of flashing white,
+// and native controls (form autofill, scrollbars) render in their dark variants.
+export const viewport: Viewport = {
+  themeColor: "#020302",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({

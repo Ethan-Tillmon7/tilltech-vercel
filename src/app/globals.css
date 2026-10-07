@@ -149,3 +149,77 @@ main:focus-visible {
 .bg-particles span:nth-child(10) { left: 60%; animation-duration: 23s; animation-delay: 7s; width: 1px; height: 1px; }
 .bg-particles span:nth-child(11) { left: 40%; animation-duration: 29s; animation-delay: 12s; width: 2px; height: 2px; }
 .bg-particles span:nth-child(12) { left: 92%; animation-duration: 21s; animation-delay: 9s; width: 1px; height: 1px; }
+
+/* Print: the About and Portfolio pages double as a paper career record.
+   Same words, ink-friendly screen: Night Black on white, no chrome, nothing waiting on a scroll. */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root {
+    --color-text: #020302;
+    --color-background: #ffffff;
+    --color-primary: #020302;
+    --color-accent: #020302;
+    --text: #020302;
+    --background: #ffffff;
+    --primary: #020302;
+  }
+
+  html {
+    scroll-padding-top: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Site chrome and controls mean nothing on paper. */
+  header,
+  footer,
+  #mobile-menu,
+  .bg-particles,
+  main button,
+  main form,
+  main video {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+
+  /* Scroll-triggered reveals never fire on paper. Framer leaves them as inline opacity/transform
+     styles, so reset only those; class-based opacity (the 5% grid, dim labels) stays as designed. */
+  main [style*="opacity"] {
+    opacity: 1 !important;
+  }
+
+  main [style*="transform"] {
+    transform: none !important;
+  }
+
+  main * {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Cards and timeline entries stay whole across page breaks. */
+  main .rounded-xl,
+  main [data-print-keep] {
+    break-inside: avoid;
+  }
+
+  main h2 {
+    break-after: avoid;
+  }
+
+  /* Paper can't be clicked: print where external links go. */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+}
