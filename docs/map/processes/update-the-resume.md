@@ -1,7 +1,7 @@
 ---
 type: process
 status: verified
-verified: 2026-10-06 @ 0ab6594 + working tree (v1.4 applied)
+verified: 2026-10-06 @ working tree (post-layout pass)
 consumes: [resume]
 produces: [resume]
 ---
@@ -21,8 +21,8 @@ The file name carries the version, so the URL changes each time and the code has
 ## Steps
 
 1. Export to `public/resume/Resumé v<N>-PDF.pdf`.
-2. Update **both** URLs in `src/components/skills/ResumeViewer.tsx:35` and `:54`. Keep the `%C3%A9` (precomposed é). Git on macOS stores names precomposed, which matches.
-3. Move the previous PDF to `_archive/resume/` (this repo's convention since 2026-10-06; before that, old versions were deleted).
+2. Update **both** URLs in `src/components/skills/ResumeViewer.tsx:37` and `:57`. Keep the `%C3%A9` (precomposed é). Git on macOS stores names precomposed, which matches.
+3. Move the previous PDF to `docs/_archive/resume/` (this repo's convention since 2026-10-06; before that, old versions were deleted).
 4. The `.docx` source sits beside the PDF in `public/resume/` by owner choice (2026-10-06). It's publicly downloadable at its URL, though nothing links to it. Retire the old `.docx` with the old PDF.
 5. If the résumé's facts changed, check [about](../objects/content/about.md) and [skills](../objects/content/skills.md). They're separate homes and won't update themselves.
 6. [ship-to-production](ship-to-production.md).

@@ -149,8 +149,8 @@ A monochrome near-black screen lit by a single phosphor green, with a muted viol
 
 ### Hierarchy
 - **Display** (Press Start 2P 400, 1.5rem → 2.25rem by breakpoint, line-height 1.5): Page titles, typed out on load, and the hero lines (1rem → 1.875rem, relaxed leading). Always Terminal Green, always centered.
-- **Headline** (Press Start 2P 400, 0.875rem → 1rem): Section headings within a page ("Timeline", "Skills"). Terminal Green, left-aligned.
-- **Label** (Press Start 2P 400, 0.75rem): Short card labels such as "Resume", skill category names, the home preview card titles, and the "TT" logo (1.125rem). Mobile nav links use it at 1.125rem.
+- **Headline** (Press Start 2P 400, 0.875rem → 1rem): Section headings within a page ("Timeline", "Projects", "Skills", "Resume"). Terminal Green, left-aligned, 16–24px above their content.
+- **Label** (Press Start 2P 400, 0.75rem): Short labels: skill category names (Screen White 70%), the home preview card titles, the project title in an image-less media well, and the "TT" logo (1.125rem). Mobile nav links use it at 1.125rem.
 - **Title** (Lato 700, 1rem–1.125rem, line-height ~1.4): Project titles and timeline entry titles, in Screen White.
 - **Lead** (Lato 400, 1.125rem): Page subtitles under the typed title, Screen White at 70%.
 - **Body** (Lato 400, 0.875rem, line-height 1.625): Project descriptions, bio, timeline descriptions, at 60–70% opacity.
@@ -163,13 +163,33 @@ A monochrome near-black screen lit by a single phosphor green, with a muted viol
 
 ## Layout
 
-A centered, single-column page model inside a 1280px container (`max-w-7xl`), with side padding of 16px on mobile, 24px from 640px, and 32px from 1024px. Pages stack full-width sections with 64px of vertical padding each. Every page opens with a centered header block (typed title plus lead subtitle, 48px bottom margin) before content begins.
+A centered page model inside a 1280px container (`max-w-7xl`), with side padding of 16px on mobile, 24px from 640px, and 32px from 1024px. Each page is **one section** with 64px of vertical padding. Every page opens with a centered header block (typed title plus lead subtitle, 48px bottom margin) before content begins. Inside it, sub-sections ("Projects", "Skills", "Resume") start with a left-aligned Headline and sit 64px apart.
 
-Content grids collapse cleanly. Project cards run 1 column → 2 at 768px → 3 at 1024px with 24px gaps. Skill categories run 1 → 2 → 4. The home preview grid caps at 896px and runs 1 → 2 → 3. The About page splits into two columns at 1024px (bio, education and places on the left; timeline on the right). The contact form is a single centered column capped at 576px.
+**Reading order follows product priority.** The work leads and the newest facts come first:
 
-Spacing follows Tailwind's 4px rhythm. The recurring steps are 4, 8, 16, 24, 32 and 64px. Card interiors use 24px (preview cards 32px), and stacked groups use 16–24px gaps.
+- **Portfolio:** Projects → Skills → Résumé, the order its subtitle promises.
+- **About on mobile:** Bio → Timeline → Education → Places.
+- **Timeline:** renders newest-first.
 
-The fixed header is 64px tall. Page content starts below it, and the hero fills the remaining viewport height with its content centered.
+Content grids collapse cleanly:
+
+- **Project cards:** 1 column → 2 at 768px → 3 at 1024px, with 24px gaps.
+- **Skill categories:** 1 → 2 at 640px → 4 at 1024px, with 32px gaps. Each category is a Label plus a wrapping row of tech badges, grouped by proximity, not cards.
+- **Home preview grid:** caps at 896px and runs 1 → 3 at 768px, never 2, so no card is orphaned.
+- **About:** splits into two columns at 1024px. The timeline spans the right column, and bio, education and places stack on the left. A `auto auto 1fr` row template keeps the left stack tight when the timeline runs longer.
+- **Contact:** the form is a single centered column capped at 576px, with the social links 48px below it in the same section.
+
+**The Heading Proximity Rule.** A heading sits closer to its own content than to the group above it. Section and sub-section headings use a 16–24px bottom margin, while groups are separated by 48–64px. Never give a heading equal space on both sides.
+
+Spacing follows Tailwind's 4px rhythm. The recurring steps are 4, 8, 16, 24, 32, 48 and 64px:
+
+- Card interiors use 24px (preview cards 32px).
+- Stacked cards use 16–24px gaps.
+- Timeline entries use 4px inside an entry and 40px between entries.
+
+**Touch targets.** Anything tappable gets at least a 40px hit area through padding, even when its visible mark is smaller: icons, the hamburger, carousel dots, text links. Hover-only controls stay visible on devices without hover.
+
+The fixed header is 64px tall, and page content starts below it. The hero is 70% of the viewport tall below 1024px, so the section cards begin on a phone's first screen. From 1024px it fills the viewport, with its content centered.
 
 ## Elevation & Depth
 
@@ -201,7 +221,7 @@ Softly rounded rectangles for containers, full capsules for anything tag-like. C
 ### Chips
 - **Tech badge:** Capsule, Terminal Green text at 12px, 10% green fill, 30% green border. Purely informational.
 - **Category / status chip:** Capsule at 2px × 8px. "In Development" uses the badge treatment. Category ("Professional") is a borderless 10% green fill with 70% green text.
-- **Filter pill:** Capsule at 8px × 16px. Inactive pills have a Dusk Slate 30% border with 60% Screen White text, shifting to a green border and text on hover. The active pill is solid Terminal Green with Night Black text.
+- **Filter pill:** Capsule, 40px tall, 12px side padding (16px from 640px), left-aligned under the "Projects" heading so all four fit one row on a phone. Inactive pills have a Dusk Slate 30% border with 60% Screen White text, shifting to a green border and text on hover. The active pill is solid Terminal Green with Night Black text.
 
 ### Cards / Containers
 - **Corner Style:** 12px.
@@ -209,7 +229,14 @@ Softly rounded rectangles for containers, full capsules for anything tag-like. C
 - **Border:** 1px Dusk Slate at 30%. On hover it becomes Terminal Green at 50%.
 - **Shadow Strategy:** None at rest. Green glow and a 4px lift on hover (see Elevation & Depth).
 - **Internal Padding:** 24px. The home preview cards use 32px with centered content.
-- **Project card anatomy:** A 192px media well (single image, side-by-side screenshots, a carousel with hover arrows and dots, or a hover-to-play demo video), then a title row with chips, a description, tech badges, and a row of quiet "Code" / "Live" links that turn green on hover.
+- **Project card anatomy:** The card stacks:
+  - A 192px media well: a single image, side-by-side screenshots, a carousel, or a hover-to-play demo video. Carousel arrows reveal on hover, stay visible on touch, and are labeled.
+  - A chip row (category, then status).
+  - The title, Lato 700 at 1.125rem with the full row to itself, so it never wraps to make room for chips.
+  - A description, then tech badges.
+  - A row of quiet "Code" / "Live" links that turn green on hover.
+- **Missing image:** When a project has no screenshot, the well stays (rows stay even) and draws a blank screen instead: the hero's grid at 5% opacity with the project title in a pixel Label at 40% green. Never "coming soon" copy.
+- **Résumé panel:** A card with one row: a "Preview" toggle (the whole label is the hit area) and the outline "Download PDF" button. The preview opens inline below.
 
 ### Inputs / Fields
 - **Style:** Night Black at 50% fill, 1px Dusk Slate 30% border, 8px radius, 12px × 16px padding, Screen White text, placeholder at 30%.

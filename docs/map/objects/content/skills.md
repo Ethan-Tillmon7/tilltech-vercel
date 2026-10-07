@@ -3,7 +3,7 @@ type: object
 cluster: content
 universe: live
 status: verified
-verified: 2026-10-06 @ 0ab6594
+verified: 2026-10-06 @ working tree (post-layout pass)
 entity: src/data/skills.json
 ---
 
@@ -19,7 +19,7 @@ Grouped by category so the page can render one block per group without sorting l
 
 - Types: `src/types/index.ts:36-47`
 - Imported at `src/app/portfolio/page.tsx:7`, mapped to `SkillCategory` components
-- **Only `skill.name` renders** (`src/components/skills/SkillCategory.tsx:24,27`). `level`, `icon` and `category` are in the data and the type, but nothing reads them.
+- **Only `skill.name` renders**, as a badge chip (`src/components/skills/SkillCategory.tsx:24`). `level`, `icon` and `category` are in the data and the type, but nothing reads them.
 
 ## Connected to
 

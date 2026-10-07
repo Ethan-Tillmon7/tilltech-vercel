@@ -3,7 +3,7 @@ type: object
 cluster: content
 universe: live
 status: verified
-verified: 2026-10-06 @ 0ab6594
+verified: 2026-10-06 @ working tree (post-layout pass)
 entity: src/data/about.json
 ---
 
@@ -17,10 +17,10 @@ One file per page keeps "update my story" to a single edit. Each key maps 1:1 to
 
 ## Shape
 
-- `bio`: string → `src/components/about/Bio.tsx:30`. The profile photo path is hardcoded at `Bio.tsx:17` (`/images/profile/CompositePicture.png`), not in JSON.
+- `bio`: string → `src/components/about/Bio.tsx:26`. The profile photo path is hardcoded at `Bio.tsx:17` (`/images/profile/CompositePicture.png`), not in JSON.
 - `education[]`: `Education`, `src/types/index.ts:50-58` → `Education.tsx:14`
 - `placesLived[]`: `PlaceLived`, `types/index.ts:69-74` → `PlacesLived.tsx:14`
-- `timeline[]`: `TimelineEvent`, `types/index.ts:60-67` → `Timeline.tsx:20`. The dot color per `type` is at `Timeline.tsx:6-11`.
+- `timeline[]`: `TimelineEvent`, `types/index.ts:60-67` → `Timeline.tsx:20`. **Rendered newest-first**: the component reverses the array, so the JSON stays oldest-first and new events are appended at the end. The dot color per `type` is at `Timeline.tsx:6-11`.
 
 ## Connected to
 

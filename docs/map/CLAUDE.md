@@ -1,6 +1,6 @@
-# map/ — edit map of the portfolio source
+# docs/map/ — edit map of the portfolio source
 
-A walkable index of this repo for agents about to change it. The code is the source of truth; cards cite it and never restate it. Verified against `main` @ `0ab6594` plus the 2026-10-06 working tree.
+A walkable index of this repo for agents about to change it. The code is the source of truth; cards cite it and never restate it. Each card states the commit or working-tree state it was verified against.
 
 ## Universes
 
@@ -16,7 +16,7 @@ There is no **leftover** universe yet.
 | You'll hear | In code it is |
 | --- | --- |
 | "Connect" | route `/contact`, `src/app/contact/` |
-| "Portfolio" page | `/portfolio`: renders projects **and** skills **and** the résumé |
+| "Portfolio" page | `/portfolio`: renders projects, then skills, then the résumé, in one section |
 | "Skills" section | `src/components/skills/`. There is no `/skills` route; it lives on `/portfolio` |
 | "Interests" / "Travels" / "Health" | Ghost component folders. No route renders them |
 | "deploy" / "live site" | GitHub `tilltech-vercel`, a mirror of this `main`, pushed by `npm run ship`. Not the stale local `../tilltech-vercel` folder |

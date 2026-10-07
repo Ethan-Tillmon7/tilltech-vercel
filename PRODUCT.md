@@ -60,7 +60,7 @@ A product-minded builder with a software engineering foundation who has shipped 
 
 ## Evidence on Hand
 
-- Résumé: `public/resume/Resumé v1.3-PDF.pdf` (likely as stale as the site; check before relying on it).
+- Résumé: `public/resume/Resumé v1.4-PDF.pdf` (uploaded 2026-10-06; Word source beside it). Earlier versions are in `docs/_archive/resume/`.
 - Profile image: `public/images/profile/CompositePicture.png`.
 - Project screenshots in `public/images/projects/`: Joshinator (3), Encore (3), RAgent docs, RecyclePlatinum, Vernon order lookup, Blackjack. Also the Retro Rumble demo video (`RetroRumbleDemo.mp4`) and a `Coupa Certs` folder.
 - Public GitHub repos: joshinator-analyzer, RAgent, Letter-Links, Retro-Rumble, IEEE754-Convertor (under `Ethan-Tillmon7`).

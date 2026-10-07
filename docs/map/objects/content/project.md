@@ -3,7 +3,7 @@ type: object
 cluster: content
 universe: live
 status: verified
-verified: 2026-10-06 @ 0ab6594 + working tree
+verified: 2026-10-06 @ working tree (post-layout pass)
 entity: src/data/projects.json
 ---
 
@@ -23,9 +23,9 @@ Projects are static JSON so adding one is a data edit, not a code change. The `i
 - Media picks the **first** match (`src/components/portfolio/ProjectCard.tsx`):
   1. `demoUrl`, a video (`:41`)
   2. `screenshots` (>1) + `screenshotLayout: "carousel"` (`:59`), otherwise the grid layout
-  3. `thumbnailUrl` (`:123`), which shows "Image coming soon..." on load error (`:118`, `:129`)
-- Badges: `status: "in-development"` (`:138`), `category` (`:144`), `techStack` chips (`:154`). Links: `githubUrl` (`:160`), `liveUrl` (`:178`).
-- As of 2026-10-06, 4 `thumbnailUrl`s point at images that exist nowhere: guided-buying, letter-links, retro-rumble, ieee754. Retro Rumble never shows its thumbnail because the video wins; the other 3 show "Image coming soon...". To fix one, drop a file at the path its `thumbnailUrl` already names.
+  3. `thumbnailUrl` (`:142`). On load error it falls back to a blank-screen well showing the project title (`:122`, `:147`)
+- Chips sit above the title: `category` (`:156`), `status: "in-development"` (`:158`). Then `techStack` badges (`:171`). Links: `githubUrl` (`:177`), `liveUrl` (`:195`).
+- As of 2026-10-06, 4 `thumbnailUrl`s point at images that exist nowhere: guided-buying, letter-links, retro-rumble, ieee754. Retro Rumble never shows its thumbnail because the video wins; the other 3 show the titled blank-screen fallback. To fix one, drop a file at the path its `thumbnailUrl` already names.
 
 ## Connected to
 
