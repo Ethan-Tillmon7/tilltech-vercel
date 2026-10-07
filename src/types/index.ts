@@ -36,7 +36,7 @@ export interface Project {
 export interface Skill {
   name: string;
   level: number;
-  category: "languages" | "frameworks" | "tools" | "soft-skills";
+  category: "languages" | "frameworks" | "tools" | "ai-assisted-dev" | "soft-skills";
   icon?: string;
 }
 

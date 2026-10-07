@@ -9,7 +9,7 @@ entity: src/data/skills.json
 
 # Skills
 
-`src/data/skills.json`, an array of `SkillCategory` (4 today), each a list of `Skill`, rendered on `/portfolio`. There is no `/skills` route.
+`src/data/skills.json`, an array of `SkillCategory` (5 today: Languages, Frameworks, Tools, AI-Assisted Dev, Soft Skills), each a list of `Skill`, rendered on `/portfolio`. There is no `/skills` route.
 
 ## Why this shape
 

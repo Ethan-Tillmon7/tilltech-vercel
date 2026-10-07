@@ -176,7 +176,7 @@ A centered page model inside a 1280px container (`max-w-7xl`), with side padding
 Content grids collapse cleanly:
 
 - **Project cards:** 1 column → 2 at 768px → 3 at 1024px, with 24px gaps.
-- **Skill categories:** 1 → 2 at 640px → 4 at 1024px, with 32px gaps. Each category is a Label plus a wrapping row of tech badges, grouped by proximity, not cards.
+- **Skill categories:** 1 → 2 at 640px → 3 at 1024px (five categories sit 3 + 2), with 32px gaps. Each category is a Label plus a wrapping row of tech badges, grouped by proximity, not cards.
 - **Home preview grid:** caps at 896px and runs 1 → 3 at 768px, never 2, so no card is orphaned.
 - **About:** splits into two columns at 1024px. The timeline spans the right column, and bio, education and places stack on the left. A `auto auto 1fr` row template keeps the left stack tight when the timeline runs longer.
 - **Contact:** the form is a single centered column capped at 576px, with the social links 48px below it in the same section.

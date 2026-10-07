@@ -36,8 +36,15 @@
       { "name": "Cloudflare", "level": 68, "category": "tools", "icon": "SiCloudflare" },
       { "name": "Figma", "level": 70, "category": "tools", "icon": "SiFigma" },
       { "name": "Vercel", "level": 80, "category": "tools", "icon": "SiVercel" },
-      { "name": "SEO & AEO", "level": 85, "category": "tools" },
-      { "name": "Claude Code", "level": 88, "category": "tools" }
+      { "name": "SEO & AEO", "level": 85, "category": "tools" }
+    ]
+  },
+  {
+    "name": "AI-Assisted Dev",
+    "slug": "ai-assisted-dev",
+    "skills": [
+      { "name": "Claude Code", "level": 88, "category": "ai-assisted-dev" },
+      { "name": "Agentic Workflows", "level": 85, "category": "ai-assisted-dev" }
     ]
   },
   {

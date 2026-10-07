@@ -1,5 +1,5 @@
 {
-  "bio": "Software Developer at Beyond79, a precious-metals e-commerce company — working across a five-brand site portfolio on performance optimization, SEO and answer-engine optimization (AEO), and platform modernization. Also a part owner at Vernon LLC, an AI & automation consulting firm: building client systems from manufacturing-process digitization to a custom CRM now in design, and leading business development — most recently bringing Playmaker Sports on as a retainer client. Product-minded builder with a software engineering foundation: define the problem, iterate quickly, ship practical solutions.",
+  "bio": "Software Developer at Beyond79, a precious-metals e-commerce company — working across a five-brand site portfolio on performance optimization, SEO and answer-engine optimization (AEO), and platform modernization. Also a part owner at Vernon LLC, an AI & automation consulting firm: building client systems from manufacturing-process digitization to a custom CRM now in design, and leading business development. Product-minded builder with a software engineering foundation: define the problem, iterate quickly, ship practical solutions.",
   "education": [
     {
       "institution": "Tulane University of Louisiana",
@@ -96,7 +96,15 @@
       "id": "t7",
       "date": "Aug 2025",
       "title": "Developer at Vernon LLC",
-      "description": "Joined a 4-person AI & automation startup delivering manufacturing process digitization and custom client systems — later becoming a part owner and leading new client acquisition",
+      "description": "Joined a 4-person AI & automation startup delivering manufacturing process digitization and custom client systems",
+      "type": "career",
+      "location": "Kansas City, MO"
+    },
+    {
+      "id": "t10",
+      "date": "Jan 2026",
+      "title": "Part Owner at Vernon LLC",
+      "description": "Became a part owner of the firm — building client systems and leading business development and new client acquisition",
       "type": "career",
       "location": "Kansas City, MO"
     },
