@@ -3,7 +3,7 @@ type: object
 cluster: content
 universe: live
 status: verified
-verified: 2026-10-06 @ working tree (post-layout pass)
+verified: 2026-10-06 @ working tree (harden pass)
 entity: public/resume/Resumé v1.4-PDF.pdf
 ---
 
@@ -17,9 +17,11 @@ A static file means a résumé update is a file swap. The file name is versioned
 
 ## Shape
 
-- URL-encoded path hardcoded **twice**: download button `src/components/skills/ResumeViewer.tsx:37`, iframe `:57`
+- URL-encoded path in **one** constant, `RESUME_URL` (`src/components/skills/ResumeViewer.tsx:8`), used by the download button and the iframe. Downloads are saved as `RESUME_FILENAME` (`:10`, `Ethan-Tillmon-Resume.pdf`).
+- Where `navigator.pdfViewerEnabled` is false (Android Chrome, some in-app browsers), the preview shows an "open in a new tab" link instead of a blank frame.
+- Local gotcha: macOS stores the file name decomposed (`e` + combining accent), so the `%C3%A9` URL 404s under `next start` on a Mac. Git and Vercel use the precomposed form, which matches.
 - The component lives in `components/skills/` but renders on `/portfolio` (`src/app/portfolio/page.tsx:6,49`)
-- `next.config.ts:17-18` sends `X-Frame-Options: DENY` on every path, including this PDF. DENY also blocks same-origin framing, so the inline viewer is **likely blank in browsers**. The download link is unaffected. Not yet confirmed in a browser.
+- `next.config.ts` sends `X-Frame-Options: DENY` everywhere, but a later rule relaxes `/resume/:path*` to `SAMEORIGIN`, so `/portfolio` can frame the PDF. Verified with response headers.
 
 ## Connected to
 
@@ -27,7 +29,7 @@ A static file means a résumé update is a file swap. The file name is versioned
 
 ## If you change this
 
-- **Hits:** a new version means adding the new PDF to `public/resume/`, removing the old one, and updating both lines in `ResumeViewer.tsx` with the `é` → `%C3%A9` encoding. Fixing the iframe means `next.config.ts` (e.g. `SAMEORIGIN` for `/resume/*`).
+- **Hits:** a new version means adding the new PDF to `public/resume/`, removing the old one, and updating `RESUME_URL` in `ResumeViewer.tsx` with the `é` → `%C3%A9` encoding. Moving the PDF out of `/resume/` would lose the `SAMEORIGIN` rule in `next.config.ts`.
 - **Does not hit:** `about.json`, `skills.json`. Those aren't derived from the PDF.
 
 ## Surfaces

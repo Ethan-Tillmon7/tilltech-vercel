@@ -39,6 +39,17 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // The résumé PDF is framed by our own /portfolio page. DENY blocks same-origin frames
+      // too, so this path alone relaxes to SAMEORIGIN (a later rule with the same key wins).
+      {
+        source: "/resume/:path*",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+        ],
+      },
     ];
   },
 };

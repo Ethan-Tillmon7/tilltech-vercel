@@ -7,6 +7,8 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
+  /** Suggested filename. Renders a plain <a download>, since files can't go through client-side routing. */
+  download?: string;
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
@@ -31,13 +33,24 @@ export default function Button({
   variant = "primary",
   size = "md",
   href,
+  download,
   children,
   className = "",
   onClick,
   type = "button",
   disabled = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors ${variants[variant]} ${sizes[size]} ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-bold transition-colors ${variants[variant]} ${sizes[size]} ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
+
+  if (href && download) {
+    return (
+      <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+        <a href={href} download={download} className={classes}>
+          {children}
+        </a>
+      </motion.div>
+    );
+  }
 
   if (href) {
     return (
