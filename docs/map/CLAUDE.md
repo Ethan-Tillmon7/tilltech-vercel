@@ -17,8 +17,8 @@ There is no **leftover** universe yet.
 | --- | --- |
 | "Connect" | route `/contact`, `src/app/contact/` |
 | "Portfolio" page | `/portfolio`: renders projects, then skills, then the résumé, in one section |
-| "Skills" section | `src/components/skills/`. There is no `/skills` route; it lives on `/portfolio` |
-| "Interests" / "Travels" / "Health" | Ghost component folders. No route renders them |
+| "Skills" section | `src/components/portfolio/SkillCategory.tsx`. There is no `/skills` route; it lives on `/portfolio` |
+| "Interests" / "Travels" / "Health" | `src/components/_parked/`. No route renders them |
 | "deploy" / "live site" | GitHub `tilltech-vercel`, a mirror of this `main`, pushed by `npm run ship`. Not the stale local `../tilltech-vercel` folder |
 
 ## Where to go

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import SectionWrapper from "@/components/common/SectionWrapper";
 import PageContent from "@/components/common/PageContent";
 import ProjectGrid from "@/components/portfolio/ProjectGrid";
-import SkillCategory from "@/components/skills/SkillCategory";
-import ResumeViewer from "@/components/skills/ResumeViewer";
+import SkillCategory from "@/components/portfolio/SkillCategory";
+import ResumeViewer from "@/components/portfolio/ResumeViewer";
 import skillsData from "@/data/skills.json";
 import type { SkillCategory as SkillCategoryType } from "@/types";
 

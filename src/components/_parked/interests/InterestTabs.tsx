@@ -1,9 +1,9 @@
 // "use client";
 
 // import { AnimatePresence, motion } from "framer-motion";
-// import TravelStats from "@/components/travels/TravelStats";
-// import WorldMap from "@/components/travels/WorldMap";
-// import PhotoGallery from "@/components/travels/PhotoGallery";
+// import TravelStats from "@/components/_parked/travels/TravelStats";
+// import WorldMap from "@/components/_parked/travels/WorldMap";
+// import PhotoGallery from "@/components/_parked/travels/PhotoGallery";
 
 // export default function TravelsSection() {
 //   return (

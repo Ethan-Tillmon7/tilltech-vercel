@@ -17,10 +17,10 @@ A static file means a résumé update is a file swap. The file name is versioned
 
 ## Shape
 
-- URL-encoded path in **one** constant, `RESUME_URL` (`src/components/skills/ResumeViewer.tsx:8`), used by the download button and the iframe. Downloads are saved as `RESUME_FILENAME` (`:10`, `Ethan-Tillmon-Resume.pdf`).
+- URL-encoded path in **one** constant, `RESUME_URL` (`src/components/portfolio/ResumeViewer.tsx:8`), used by the download button and the iframe. Downloads are saved as `RESUME_FILENAME` (`:10`, `Ethan-Tillmon-Resume.pdf`).
 - Where `navigator.pdfViewerEnabled` is false (Android Chrome, some in-app browsers), the preview shows an "open in a new tab" link instead of a blank frame.
 - Local gotcha: macOS stores the file name decomposed (`e` + combining accent), so the `%C3%A9` URL 404s under `next start` on a Mac. Git and Vercel use the precomposed form, which matches.
-- The component lives in `components/skills/` but renders on `/portfolio` (`src/app/portfolio/page.tsx:6,49`)
+- The component lives in `components/portfolio/` with the rest of the page (`src/app/portfolio/page.tsx:6,49`)
 - `next.config.ts` sends `X-Frame-Options: DENY` everywhere, but a later rule relaxes `/resume/:path*` to `SAMEORIGIN`, so `/portfolio` can frame the PDF. Verified with response headers.
 
 ## Connected to
@@ -41,4 +41,4 @@ A static file means a résumé update is a file swap. The file name is versioned
 
 ## See
 
-- Source: `src/components/skills/ResumeViewer.tsx`
+- Source: `src/components/portfolio/ResumeViewer.tsx`

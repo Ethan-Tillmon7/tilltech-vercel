@@ -9,7 +9,7 @@ entity: src/lib/strava.ts
 
 # Health and Strava (ghost)
 
-Strava activity feed, marathon countdown and fitness goals (`src/components/health/`). No page renders them. Parked for possible future integration (owner, 2026-10-06).
+Strava activity feed, marathon countdown and fitness goals (`src/components/_parked/health/`). No page renders them. Parked for possible future integration (owner, 2026-10-06).
 
 ## Why this shape
 

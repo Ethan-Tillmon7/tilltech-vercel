@@ -15,4 +15,4 @@ One line per thing in the site. Open the card, not the folder.
 | [wiring/health-strava](wiring/health-strava.md) | ghost | verified | Strava feed, marathon countdown, fitness goals. Endpoint deployed, no UI |
 | [content/interests-travels](content/interests-travels.md) | ghost | verified | Interest tabs, world map, travel stats, photo gallery. Nothing renders them |
 
-Not carded (small, single-file, no cross-links): `src/app/{error,loading,not-found}.tsx`, `robots.ts`, `common/Analytics.tsx`, the `common/` UI primitives. `common/Card.tsx` is imported by nothing.
+Not carded (small, single-file, no cross-links): `src/app/{error,loading,not-found}.tsx`, `robots.ts`, `layout/Analytics.tsx`, the `common/` UI primitives, and the app shell in `layout/` (`MotionProvider`, `PageTransition`).

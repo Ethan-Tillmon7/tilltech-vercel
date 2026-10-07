@@ -22,7 +22,8 @@ npm run ship    # build, then push main to origin + the deploy mirror
 | `PRODUCT.md` | Who the site is for, positioning, what "stale" means |
 | `DESIGN.md` | The design system: colors, type, layout, components. `.impeccable/design.json` is generated from it |
 | `src/data/*.json` | All site content (projects, about, skills, nav, social) |
-| `src/app/` | Routes and API routes; `src/components/<section>/` renders them |
+| `src/app/` | Routes and API routes; `src/components/<route>/` renders each page, `layout/` the frame around every page, `common/` the pieces pages share |
+| `src/components/_parked/` | Working features no page renders (health, interests, travels). Read its README before reviving one |
 | `public/` | Served at the site root: images, résumé PDF |
 
 `PRODUCT.md`, `DESIGN.md` and `.impeccable/` must stay at the root: the impeccable design tool only reads them there.

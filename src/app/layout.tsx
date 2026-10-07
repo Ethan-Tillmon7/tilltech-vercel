@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Lato, Press_Start_2P } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import PageTransition from "@/components/common/PageTransition";
-import Analytics from "@/components/common/Analytics";
-import MotionProvider from "@/components/common/MotionProvider";
+import PageTransition from "@/components/layout/PageTransition";
+import Analytics from "@/components/layout/Analytics";
+import MotionProvider from "@/components/layout/MotionProvider";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import "./globals.css";
 
