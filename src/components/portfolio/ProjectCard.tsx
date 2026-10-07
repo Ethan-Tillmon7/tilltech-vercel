@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaPlay, FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -14,10 +14,47 @@ interface ProjectCardProps {
   repoInfo?: GitHubRepoInfo;
 }
 
+const compact = new Intl.NumberFormat("en", { notation: "compact" });
+
+// No screenshot (or the media failed to load): keep the well so rows stay even, and draw it
+// as a blank screen (the hero's grid) carrying the project's name, not an apology.
+function BlankWell({ title }: { title: string }) {
+  return (
+    <div className="relative flex h-48 items-center justify-center overflow-hidden bg-secondary/10 px-6">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(66,186,64,1) 1px, transparent 1px), linear-gradient(90deg, rgba(66,186,64,1) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
+      <span aria-hidden="true" className="relative line-clamp-3 text-center font-pixel text-xs leading-relaxed wrap-break-word text-primary/40">
+        {title}
+      </span>
+    </div>
+  );
+}
+
 export default function ProjectCard({ project, index, repoInfo }: ProjectCardProps) {
   const [imgError, setImgError] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [slideIndex, setSlideIndex] = useState(0);
   const slides = project.screenshots && project.screenshots.length > 1 ? project.screenshots : null;
+
+  const playDemo = () => {
+    // play() rejects if the browser blocks it or the source fails; the overlay just stays up.
+    videoRef.current?.play().catch(() => setPlaying(false));
+  };
+  const stopDemo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.pause();
+    video.currentTime = 0;
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -38,23 +75,40 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
           transition={{ duration: 0.25 }}
         >
         {/* Thumbnail */}
-        {project.demoUrl ? (
-          <div className="relative h-48 overflow-hidden bg-secondary/10">
+        {project.demoUrl && !videoError ? (
+          // Hover plays it for a mouse; a tap (or Enter/Space) toggles it everywhere else.
+          <div
+            className="relative h-48 overflow-hidden bg-secondary/10"
+            onPointerEnter={(e) => e.pointerType === "mouse" && playDemo()}
+            onPointerLeave={(e) => e.pointerType === "mouse" && stopDemo()}
+          >
             <video
-              src={project.demoUrl}
+              ref={videoRef}
+              // #t=0.1 makes Safari paint a first frame instead of a black well.
+              src={`${project.demoUrl}#t=0.1`}
               muted
               loop
               playsInline
+              preload="metadata"
+              aria-hidden="true"
               className="h-full w-full object-cover"
-              onMouseEnter={(e) => e.currentTarget.play()}
-              onMouseLeave={(e) => {
-                e.currentTarget.pause();
-                e.currentTarget.currentTime = 0;
-              }}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onError={() => setVideoError(true)}
             />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity group-hover:opacity-0">
-              <FaPlay className="text-2xl text-primary" />
-            </div>
+            <button
+              type="button"
+              onClick={() => (playing ? stopDemo() : playDemo())}
+              aria-label={`${playing ? "Stop" : "Play"} ${project.title} demo video`}
+              className={`absolute inset-0 flex items-center justify-center transition-colors ${
+                playing ? "bg-transparent" : "bg-background/30"
+              }`}
+            >
+              <FaPlay
+                aria-hidden="true"
+                className={`text-2xl text-primary transition-opacity ${playing ? "opacity-0" : "opacity-100"}`}
+              />
+            </button>
           </div>
         ) : slides && project.screenshotLayout === "carousel" ? (
           <div className="relative h-48 overflow-hidden bg-secondary/10">
@@ -119,23 +173,8 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
               </div>
             ))}
           </div>
-        ) : imgError ? (
-          // No screenshot yet: keep the well so rows stay even, and draw it as a blank screen
-          // (the hero's 3% grid) carrying the project's name, not an apology.
-          <div className="relative flex h-48 items-center justify-center overflow-hidden bg-secondary/10 px-6">
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 opacity-[0.05]"
-              style={{
-                backgroundImage:
-                  "linear-gradient(rgba(66,186,64,1) 1px, transparent 1px), linear-gradient(90deg, rgba(66,186,64,1) 1px, transparent 1px)",
-                backgroundSize: "24px 24px",
-              }}
-            />
-            <span aria-hidden="true" className="relative text-center font-pixel text-xs leading-relaxed text-primary/40">
-              {project.title}
-            </span>
-          </div>
+        ) : imgError || project.demoUrl ? (
+          <BlankWell title={project.title} />
         ) : (
           <div className="relative h-48 overflow-hidden bg-secondary/10">
             <Image
@@ -161,9 +200,9 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
               </span>
             )}
           </div>
-          <GlitchText text={project.title} as="h3" className="mb-2 text-lg font-bold text-text" />
+          <GlitchText text={project.title} as="h3" className="mb-2 text-lg font-bold wrap-break-word text-text" />
 
-          <p className="mb-4 flex-1 text-sm leading-relaxed text-text/60">
+          <p className="mb-4 flex-1 text-sm leading-relaxed wrap-break-word text-text/60">
             {project.description}
           </p>
 
@@ -173,7 +212,7 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
@@ -181,12 +220,14 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                 rel="noopener noreferrer"
                 className="-my-2 flex items-center gap-2 py-2 text-sm text-text/50 transition-colors hover:text-primary"
               >
-                <FaGithub /> Code
+                <FaGithub aria-hidden="true" /> Code
+                <span className="sr-only"> for {project.title} on GitHub (opens in a new tab)</span>
               </a>
             )}
             {repoInfo && repoInfo.stars > 0 && (
               <span className="flex items-center gap-1 text-sm text-text/40">
-                <FaStar className="text-yellow-500" /> {repoInfo.stars}
+                <FaStar aria-hidden="true" className="text-yellow-500" />
+                <span className="sr-only">GitHub stars:</span> {compact.format(repoInfo.stars)}
               </span>
             )}
             {repoInfo?.language && (
@@ -199,7 +240,8 @@ export default function ProjectCard({ project, index, repoInfo }: ProjectCardPro
                 rel="noopener noreferrer"
                 className="-my-2 flex items-center gap-2 py-2 text-sm text-text/50 transition-colors hover:text-primary"
               >
-                <FaExternalLinkAlt /> Live
+                <FaExternalLinkAlt aria-hidden="true" /> Live
+                <span className="sr-only"> site for {project.title} (opens in a new tab)</span>
               </a>
             )}
           </div>

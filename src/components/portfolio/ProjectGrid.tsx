@@ -8,7 +8,10 @@ import projectsData from "@/data/projects.json";
 import type { Project } from "@/types";
 
 const projects = projectsData as Project[];
-const categories = ["all", "professional", "personal", "academic"] as const;
+// A pill only shows when its category has projects, so no filter ever leads to an empty grid.
+const categories = ["all", "professional", "personal", "academic"].filter(
+  (cat) => cat === "all" || projects.some((p) => p.category === cat)
+);
 
 export default function ProjectGrid() {
   const [filter, setFilter] = useState<string>("all");
@@ -19,13 +22,19 @@ export default function ProjectGrid() {
       ? projects
       : projects.filter((p) => p.category === filter);
 
+  if (projects.length === 0) {
+    return <p className="text-sm text-text/60">Projects are on their way.</p>;
+  }
+
   return (
     <div>
-      {/* Filter buttons */}
-      <div className="mb-8 flex flex-wrap gap-2 sm:gap-3">
+      {/* Filter buttons (hidden when there's nothing to choose between) */}
+      <div className={`mb-8 flex flex-wrap gap-2 sm:gap-3 ${categories.length < 3 ? "hidden" : ""}`}>
         {categories.map((cat) => (
           <button
             key={cat}
+            type="button"
+            aria-pressed={filter === cat}
             onClick={() => setFilter(cat)}
             className={`min-h-10 rounded-full px-3 py-2 text-sm capitalize transition-colors sm:px-4 ${
               filter === cat
